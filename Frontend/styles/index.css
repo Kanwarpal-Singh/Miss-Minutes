@@ -19,12 +19,16 @@
 }
 
 /* Targeting the body element */
-body {
-}
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 10px;
   background: var(--aths-special);
+}
+
+::-webkit-scrollbar-button {
+  display: block;
+  background-color: var(--spicy-mix);
+  background-image: url("../images/miss-minutes-shy.png");
 }
 
 ::-webkit-scrollbar-thumb {
@@ -33,70 +37,78 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--copper-canyon);
-} */
+}
 
 /* Navbar section */
 nav {
-  height: 90px;
-  padding: 0 13%;
+  /* height: 90px; */
+  padding: 0 180px;
   display: flex;
   justify-content: space-between;
-  border-top: 4px solid var(--spicy-mix);
+  border-top: 10px solid var(--spicy-mix);
+  background-color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  position: sticky;
+  top: 0;
 }
 /* Navbar left */
 .navbar_left {
+  max-height: 90px;
   display: flex;
   align-items: center;
-  gap: 5px;
-  border: 1px solid red;
+  gap: 15px;
+  /* border: 1px solid red; */
 }
 .navbar_left img {
-  height: 50%;
-  border: 1px solid red;
+  max-height: 80%;
+  /* border: 1px solid red; */
 }
 .navbar_left span {
   font-family: "Courier New", Courier, monospace;
   font-size: x-large;
-  font-weight: 600;
+  font-weight: 800;
+  color: var(--paco);
 }
 /* Navbar right */
 .navbar_right {
+  min-width: 70%;
   display: flex;
-  gap: 100px;
   align-items: center;
-  justify-content: space-between;
-  border: 1px solid green;
+  justify-content: space-evenly;
+  /* border: 1px solid green; */
 }
 .navbar_list {
   display: flex;
-  gap: 40px;
+  gap: 20px;
+  font-weight: 600;
+  /* border: 1px solid blue; */
 }
 .navbar_list div {
-  font-size: 100%;
+  transition: border-bottom 0.3s ease;
+}
+.navbar_list div:hover {
+  position: static;
+  cursor: pointer;
+  border-bottom: 3px solid var(--spicy-mix);
 }
 /* Navbar buttons */
 .navbar_buttons {
   display: flex;
   gap: 10px;
-  border: 0;
-  border-radius: 10px;
 }
 .navbar_buttons button {
   color: var(--aths-special);
+  background: var(--spicy-mix);
+  border: 1px solid var(--paco);
+  border-radius: 5px;
+  padding: 10px;
+}
+.navbar_buttons button:hover {
+  color: white;
   background: var(--paco);
 }
-.navbar_buttons button:nth-child(1) {
-  height: 40px;
-  width: 80%;
-  padding: 5px;
-}
-.navbar_buttons button:nth-child(2) {
-  height: 40px;
-  width: 80px;
-}
-
+/* Navbar wrapper */
 #nav_wrapper {
   display: none;
 }
@@ -105,30 +117,24 @@ nav {
 }
 
 /* Header section */
-.header {
-}
 
 /* Main content section */
-main {
-}
 
 /* Footer section */
-.footer {
-}
 
 /* Responsiveness */
 
 /* large screen */
 @media (max-width: 1185px) {
-  main {
-    background: blue;
-  }
   nav {
-    height: 5%;
+    padding: 0 5%;
     flex-direction: column;
   }
+  .navbar_left {
+    align-self: center;
+  }
   .navbar_left img {
-    border: 1px solid red;
+    width: 80px;
   }
   .navbar_left span {
     font-family: "Courier New", Courier, monospace;
@@ -138,31 +144,46 @@ main {
 
   .navbar_right {
     flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid green;
   }
   .navbar_list {
-    flex-direction: column;
-    justify-content: center;
-    gap: 40px;
-    border: 1px solid red;
-    align-self: stretch;
+    width: 100%;
     text-align: center;
+    flex-direction: column;
   }
   .navbar_list div {
-    border-bottom: 1px solid #4e1d13;
+    padding: 10px;
+    border-bottom: 1px solid rgba(78, 29, 19, 0.2);
+  }
+
+  /* Navbar buttons */
+  .navbar_buttons {
+    width: 100%;
+    justify-content: space-evenly;
+    padding: 30px 0;
+  }
+  .navbar_buttons button {
+    width: 100%;
+    max-width: 35%;
+    color: var(--aths-special);
+    background: var(--copper-canyon);
+    border: 1px solid var(--paco);
+    border-radius: 5px;
   }
 
   #nav_wrapper {
-    display: block;
-    align-self: center;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+  }
+  #nav_wrapper ~ i {
+    position: absolute;
+    top: 40px;
+    right: 40px;
   }
   #nav_wrapper ~ i,
   #nav_wrapper {
     display: block;
-    font-size: xx-large;
+    font-size: x-large;
     color: var(--spicy-mix);
     align-self: center;
   }
@@ -171,6 +192,9 @@ main {
 @media (max-width: 900px) {
   main {
     background: blue;
+  }
+  nav {
+    gap: 15px;
   }
 }
 
