@@ -1,13 +1,15 @@
 const express  =require("express"); 
+var cors = require('cors')
 const {connection} = require("./config/db");
 const{userRoute} =require("./routes/user.route");
+const { taskRoute } = require("./routes/task.route");
+const { auth } = require("./middlewares/auth");
 
 require ("dotenv").config();
 
 const app = express();
 app.use(express.json());
-
-
+app.use(cors())
 
 
 app.get("/", (req,res) => {
@@ -17,7 +19,7 @@ app.get("/", (req,res) => {
 
 app.use("/user",userRoute)
 
-
+app.use("task",auth,taskRoute)
 
 
 
