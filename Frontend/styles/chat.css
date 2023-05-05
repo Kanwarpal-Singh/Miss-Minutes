@@ -1,26 +1,66 @@
 
+.main{
+    border: 1px solid  green;
+    height: 100vh;
+    background-color: rgb(184, 178, 178);
+}
+
 .left-sidebar{
      border: 2px solid black;
      position: absolute;
-     left: 0;
-     top:0;
-     height: 100%;
-     width: 40%;
+     left: 5%;
+     top:8%;
+     height: 80vh;
+     width: 25%;
+     padding-bottom: 5%;
      background-color: #fb922b;
+     /* border-radius: 50px; */
+}
 
 
+.profile-picture{
 
+     border: 2px solid black;
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+       position: absolute;
+       top:5%;
+       left:25%
+}
+.user-name{
+    border: 1px solid black;
+    height: 2vh;
+    width: 25vh;
+    position: absolute;
+    top: 26%;
+    left: 15%;
+
+
+}
+
+
+.contacts-list{
+
+     border: 1px solid black;
+     height: 60vh;
+     width: 35vh;
+     position: absolute;
+     top: 30%;
+     left:5%
 }
 
 .right-sidebar{
 
     border: 2px solid red;
     position: absolute;
-    top: 0;
-    left:40%;
-    width: 60%;
-    height: 100%;
-    background-image: url("/Frontend/assests/fbf80b25-8c31-483a-aa7a-3a7d5fad752d.jpeg");
+    top: 8%;
+    left:30%;
+    width: 63%;
+    padding-bottom: 5%;
+    
+    height: 80vh;
+    background-image: url("/Frontend/images/marvel-miss-minutes-logo.png");
     background-repeat: no-repeat;
     background-color:whitesmoke;
     background-position: center;
@@ -36,4 +76,30 @@
      
 
     
+}
+
+
+.chat-send-button{
+    border: 2px solid slateblue;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 77%;
+    width: 100%;
+    
+}
+
+.input-text{
+
+    width: 90%;
+    font-size: 20px;
+    border: 2px salmon;
+
+}
+button{
+
+    width: auto;
+    padding-left: 2%;
+    padding-right: 2% ;
+
 }
