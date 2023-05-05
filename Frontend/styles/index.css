@@ -28,7 +28,6 @@
 ::-webkit-scrollbar-button {
   display: block;
   background-color: var(--spicy-mix);
-  background-image: url("../images/miss-minutes-shy.png");
 }
 
 ::-webkit-scrollbar-thumb {
@@ -47,10 +46,10 @@ footer > section {
 }
 /* Navbar section */
 nav {
-  /* height: 90px; */
+  height: 90px;
   display: flex;
   justify-content: space-between;
-  border-top: 10px solid var(--spicy-mix);
+  border-top: 5px solid var(--spicy-mix);
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
@@ -59,20 +58,21 @@ nav {
 }
 /* Navbar left */
 .navbar_left {
-  max-height: 90px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 15px;
   /* border: 1px solid red; */
+  cursor: pointer;
 }
 .navbar_left img {
-  max-height: 80%;
-  /* border: 1px solid red; */
+  max-width: 10vh;
 }
 .navbar_left span {
-  font-family: "Courier New", Courier, monospace;
-  font-size: x-large;
-  font-weight: 800;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 200%;
+  font-weight: bold;
   color: var(--paco);
 }
 /* Navbar right */
@@ -87,13 +87,28 @@ nav {
   display: flex;
   gap: 20px;
   font-weight: 600;
-  /* border: 1px solid blue; */
 }
 .navbar_list div {
-  /* transition: border-bottom 0.3s ease; */
+  position: relative;
+  cursor: pointer;
 }
-.navbar_list div:hover {
+
+.navbar_list div::after {
+  content: "";
+  position: absolute;
+  bottom: -4px; /* add a negative bottom value to move the line below the element */
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--spicy-mix);
+  transition: width 0.3s ease-in-out;
+  box-shadow: 0 4px 0 0 white; /* add a white box shadow to create the gap */
 }
+
+.navbar_list div:hover::after {
+  width: 100%;
+}
+
 .navbar_list div > span {
   display: block;
   position: absolute;
@@ -275,25 +290,36 @@ header {
     padding: 0 50px;
   }
 
-  nav {
-    padding: 0 5%;
-    flex-direction: column;
-  }
   .navbar_left {
-    align-self: center;
+    margin: auto;
   }
   .navbar_left img {
-    width: 80px;
   }
   .navbar_left span {
-    font-family: "Courier New", Courier, monospace;
-    font-size: x-large;
-    font-weight: 600;
   }
-
   .navbar_right {
     flex-direction: column;
-    display: none;
+    position: absolute;
+    margin-top: 85px;
+    padding-top: 10px;
+    right: 0;
+    left: 0;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+      rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+      rgba(0, 0, 0, 0.07) 0px 16px 16px;
+    animation-name: slide-in;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+  @keyframes slide-in {
+    from {
+      top: -100px;
+    }
+    to {
+      top: 0;
+    }
   }
   .navbar_list {
     width: 100%;
@@ -307,17 +333,12 @@ header {
 
   /* Navbar buttons */
   .navbar_buttons {
-    width: 100%;
     justify-content: space-evenly;
     padding: 30px 0;
   }
   .navbar_buttons button {
     width: 100%;
     max-width: 35%;
-    color: var(--aths-special);
-    background: var(--copper-canyon);
-    border: 1px solid var(--paco);
-    border-radius: 5px;
   }
 
   #nav_wrapper {
@@ -391,10 +412,28 @@ header {
   footer > section {
     padding: 0 5%;
   }
+
+  .navbar_left {
+    width: 100%;
+  }
+  .navbar_left img {
+    width: 100%;
+  }
+  .navbar_left span {
+    font-size: x-large;
+  }
+
   main {
     background: red;
   }
   #main_section_2 > div > div {
     flex-direction: column;
+  }
+}
+
+/* extra small screen <--sharam kero itana chota mobile kyu lena bhai*/
+@media (max-width: 425px) {
+  .navbar_left span {
+    display: none;
   }
 }
