@@ -8,6 +8,17 @@ const userRoute = express.Router()
 
 
 
+
+userRoute.get("/",async(req,res)=>{
+    try {
+        const users = await UserModel.find()
+        console.log(users)
+        res.send(users)
+    } catch (err) {
+        res.send(err.message)
+    }
+})
+
 userRoute.post("/signup",async(req,res)=>{
     const {email,password,role} = req.body
     try {
