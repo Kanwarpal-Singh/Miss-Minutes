@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server":"nodemon chat_backend.js"
-    
+    "server": "nodemon chat_backend.js"
   },
   "keywords": [],
   "author": "",
