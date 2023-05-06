@@ -3,6 +3,7 @@ const fs=require("fs")
 const path=require("path")
 const  socketio= require("socket.io");
 const http = require("http");
+const {UserModel}=require("./models/user.model")
 const app=express()
  app.use(express.json())
 const Path=path.join(__dirname,"../Frontend/")
@@ -37,7 +38,7 @@ const io =   socketio(server);
  io.on("connection",(socket)=>{
 
        console.log(socket.id,"socket id")
-       
+
  })
 
 

@@ -2,7 +2,7 @@
 .main{
     border: 1px solid  green;
     height: 100vh;
-    background-color: rgb(184, 178, 178);
+    background-color: rgb(140,60,20)
 }
 
 .left-sidebar{
@@ -44,10 +44,10 @@
 
      border: 1px solid black;
      height: 60vh;
-     width: 35vh;
+     width: 30vh;
      position: absolute;
      top: 30%;
-     left:5%
+     left:7%
 }
 
 .right-sidebar{
@@ -60,11 +60,12 @@
     padding-bottom: 5%;
     
     height: 80vh;
-    background-image: url("/Frontend/images/marvel-miss-minutes-logo.png");
+    background-image: url("/images/miss-minutes-fingure.png");
+    /* Do not change files url as it is automatically taken by the backend chat-app-server */
     background-repeat: no-repeat;
-    background-color:whitesmoke;
+    background-color:rgb(230,231,231);
     background-position: center;
-    opacity: 0.5;
+    opacity: 0.8;
     
 }
 .right-sidebar::before{
@@ -79,27 +80,44 @@
 }
 
 
+
+
 .chat-send-button{
-    border: 2px solid slateblue;
+    /* border: 2px solid slateblue; */
     height: 50px;
-    display: flex;
-    justify-content: space-between;
+ 
     margin-top: 77%;
-    width: 100%;
+    width: 80%;
+    margin-left: 10%;
+    /* border-radius: 50%; */
     
 }
+#chat-form{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20%;
+}
 
-.input-text{
+#chat-input{
 
-    width: 90%;
+    width: 87%;
     font-size: 20px;
-    border: 2px salmon;
+    height: 50px;
+    border: 1px blueviolet;
+    border-radius: 0%;
+  
 
 }
 button{
 
     width: auto;
-    padding-left: 2%;
-    padding-right: 2% ;
+    padding-left: 4%;
+    padding-right: 4% ;
+    font-size: 20px;
+    background-color: rgb(40, 230, 34);
+    border: 0px;
+    border-radius: 6px;
+    color: white;
+    
 
 }

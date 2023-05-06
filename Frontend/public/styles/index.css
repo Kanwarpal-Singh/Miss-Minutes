@@ -1,0 +1,206 @@
+/* Targeting all HTML elements */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+/* CSS HEX */
+:root {
+  --sea-buckthorn: #fb922b;
+  --paco: #4e1d13;
+  --aths-special: #f0e7d7;
+  --spicy-mix: #7c5040;
+  --desert: #b1581b;
+  --golden-tainoi: #fccb5b;
+  --copper-canyon: #8c3c14;
+  --pharlap: #a18174;
+  --copper: #b57532;
+}
+
+/* Targeting the body element */
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: var(--aths-special);
+}
+
+::-webkit-scrollbar-button {
+  display: block;
+  background-color: var(--spicy-mix);
+  background-image: url("../images/miss-minutes-shy.png");
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--paco);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--copper-canyon);
+}
+
+/* Navbar section */
+nav {
+  /* height: 90px; */
+  padding: 0 180px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 10px solid var(--spicy-mix);
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  position: sticky;
+  top: 0;
+}
+/* Navbar left */
+.navbar_left {
+  max-height: 90px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  /* border: 1px solid red; */
+}
+.navbar_left img {
+  max-height: 80%;
+  /* border: 1px solid red; */
+}
+.navbar_left span {
+  font-family: "Courier New", Courier, monospace;
+  font-size: x-large;
+  font-weight: 800;
+  color: var(--paco);
+}
+/* Navbar right */
+.navbar_right {
+  min-width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* border: 1px solid green; */
+}
+.navbar_list {
+  display: flex;
+  gap: 20px;
+  font-weight: 600;
+  /* border: 1px solid blue; */
+}
+.navbar_list div {
+  transition: border-bottom 0.3s ease;
+}
+.navbar_list div:hover {
+  position: static;
+  cursor: pointer;
+  border-bottom: 3px solid var(--spicy-mix);
+}
+/* Navbar buttons */
+.navbar_buttons {
+  display: flex;
+  gap: 10px;
+}
+.navbar_buttons button {
+  color: var(--aths-special);
+  background: var(--spicy-mix);
+  border: 1px solid var(--paco);
+  border-radius: 5px;
+  padding: 10px;
+}
+.navbar_buttons button:hover {
+  color: white;
+  background: var(--paco);
+}
+/* Navbar wrapper */
+#nav_wrapper {
+  display: none;
+}
+#nav_wrapper ~ i {
+  display: none;
+}
+
+/* Header section */
+
+/* Main content section */
+
+/* Footer section */
+
+/* Responsiveness */
+
+/* large screen */
+@media (max-width: 1185px) {
+  nav {
+    padding: 0 5%;
+    flex-direction: column;
+  }
+  .navbar_left {
+    align-self: center;
+  }
+  .navbar_left img {
+    width: 80px;
+  }
+  .navbar_left span {
+    font-family: "Courier New", Courier, monospace;
+    font-size: x-large;
+    font-weight: 600;
+  }
+
+  .navbar_right {
+    flex-direction: column;
+  }
+  .navbar_list {
+    width: 100%;
+    text-align: center;
+    flex-direction: column;
+  }
+  .navbar_list div {
+    padding: 10px;
+    border-bottom: 1px solid rgba(78, 29, 19, 0.2);
+  }
+
+  /* Navbar buttons */
+  .navbar_buttons {
+    width: 100%;
+    justify-content: space-evenly;
+    padding: 30px 0;
+  }
+  .navbar_buttons button {
+    width: 100%;
+    max-width: 35%;
+    color: var(--aths-special);
+    background: var(--copper-canyon);
+    border: 1px solid var(--paco);
+    border-radius: 5px;
+  }
+
+  #nav_wrapper {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+  }
+  #nav_wrapper ~ i {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+  }
+  #nav_wrapper ~ i,
+  #nav_wrapper {
+    display: block;
+    font-size: x-large;
+    color: var(--spicy-mix);
+    align-self: center;
+  }
+}
+/* medium screen  */
+@media (max-width: 900px) {
+  main {
+    background: blue;
+  }
+  nav {
+    gap: 15px;
+  }
+}
+
+/* small screen  */
+@media (max-width: 500px) {
+  main {
+    background: red;
+  }
+}
