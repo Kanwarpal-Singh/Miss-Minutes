@@ -1,6 +1,6 @@
 const express = require("express");
 const { projectModel } = require("../models/project.model");
-const { UserModel } = require("../models/user.model");
+const { role } = require("../middlewares/role.middleware");
 
 const projectRoute = express.Router()
 
@@ -8,34 +8,35 @@ projectRoute.get("/",async(req,res)=>{
     try {
         const projects = await projectModel.find();
         console.log(projects)
+        res.send(projects)
     } catch (err) {
-        res.send(err)
+        res.send(err.message)
     }
 })
 
-projectRoute.post("/create/:id", async (req, res) => {
-    const  userId  = req.params.id;
-    const {name,description,status,tasks,timeTracking} = req.body;
-
-    const user = await UserModel.findOne({_id:userId})
-
-    if(user.role==="manager" || user.role === "admin"){
+projectRoute.post("/create", role(["manager","admin"]),async (req, res) => {
+    try {
+        const {name,description,status} = req.body;
         const projectexist = await projectModel.findOne({name})
         console.log(projectexist)
         if(projectexist){
             console.log(`Project ${name} is already there, you can go through it!`)
             res.send(`Project ${name} is already there, you can go through it!`)
         }else{
-            const project = new projectModel({name,description,status,tasks,createdBy:userId,timeTracking});
+            const project = new projectModel({name,description,status,createdBy: req.body.UserId});
             console.log(project)
             await project.save();
+
+            const updatedUser = await UserModel.findOneAndUpdate(
+                { _id: req.body.UserId},
+                { $push: { assignedProjects: project._id } },
+                { new: true }
+            );
             console.log(name)
-            console.log(`project is successfully assigned to Mr. ${user.name}`)
-            res.send(project);
+            res.status(200).send({"msg":"project created",project})
         }
-    }else{
-        console.log("You are not authorized")
-        res.send("You are not authorized")
+    } catch (error) {
+        res.status(400).send({"message":error.message})
     }
 });
 
@@ -92,33 +93,18 @@ projectRoute.get("/AllProjectsByManager/:id",async(req,res)=>{
 // Update project by manager(who created),admin
 
 
-projectRoute.patch("/update/:projectid/:adminid", async(req,res)=>{
-    const adminid = req.params.adminid;
-    const empid = req.params.empid;
-    const projectname = req.params.projectname;
-    const user1 = await UserModel.findOne({_id: adminid});
-    const user2 = await UserModel.findOne({_id: empid});
-    const projectexists = await projectModel.findOne({name: projectname});
-    const projectindex = projectexists.assignedTo
-    projectindex.push(user2._id)
-    // console.log(projectindex)
+projectRoute.delete("/delete/:projectid",role("admin"), async(req,res)=>{
+    const projectid = req.params.projectid;
+    const projectexists = await projectModel.findOne({_id: projectid});
+    
     if (projectexists) {
-        if(projectexists.assignedTo.includes(empid)){
-            console.log({msg:"employee already working on this project"})
-            return res.send({msg:"employee already working on this project"})
-        }
-        if ((user1.role === "manager" || user1.role === "admin") && (user2.role !== "admin" && user2.role !== "manager")) {
-            const project = await projectModel.findByIdAndUpdate(projectexists._id,{assignedTo : projectindex}, {new: true}).exec();
-            console.log(project)
-            console.log(`Project is successfully assigned to Mr. ${user2.name}`);
-            res.send(`Project is successfully assigned to Mr. ${user2.name}`);
-        } else {
-            console.log("You are not authorized");
-            res.status(403).send("You are not authorized");
-        }
+        const project = await projectModel.findByIdAndDelete(projectexists._id).exec();
+        console.log(project)
+        console.log({"msg":`Project ${project.name} is successfully Deleted to`});
+        res.status(200).send({"msg":`Project ${project.name} is successfully Deleted to`});
     } else {
-        console.log("Project doesn't exist! Please create one.");
-        res.status(404).send("Project doesn't exist! Please create one.");
+        console.log("Project doesn't exist!");
+        res.status(404).send({"msg":"Project doesn't exist!"});
     }
 });
 

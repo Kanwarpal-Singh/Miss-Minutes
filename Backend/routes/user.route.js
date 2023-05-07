@@ -20,12 +20,12 @@ userRoute.get("/",async(req,res)=>{
 })
 
 userRoute.post("/signup",async(req,res)=>{
-    const {email,password,role} = req.body
+    const {name,email,pass,role} = req.body
     try {
         const user = await UserModel.findOne({email})
         if(user) return res.status(400).send({"msg":"User Already There Login"})
-        bcrypt.hash(password, 5, async(err, hash)=> {
-            const newuser = new UserModel({email,password:hash,role})
+        bcrypt.hash(pass, 5, async(err, hash)=> {
+            const newuser = new UserModel({name,email,pass:hash,role})
             await newuser.save()
             res.status(200).send({"msg":"Register Success"})
         });
