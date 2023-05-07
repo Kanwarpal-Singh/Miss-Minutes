@@ -1,0 +1,198 @@
+
+.main{
+    border: 1px solid  green;
+    height: 100vh;
+    background-color: rgb(140,60,20)
+}
+
+
+nav{
+
+    border: 1px solid green;
+    height: 40px;
+    background-color: white;
+    margin-top: 10px;
+}
+.left-sidebar{
+     border: 2px solid black;
+     position: absolute;
+     left: 5%;
+     top:8%;
+     height: 80vh;
+     width: 25%;
+     padding-bottom: 5%;
+     background-color: #fb922b;
+     /* border-radius: 50px; */
+}
+
+
+.profile-picture{
+
+     border: 2px solid black;
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+       position: absolute;
+       top:5%;
+       left:25%
+}
+.user-name{
+    border: 1px solid black;
+    height: 2vh;
+    width: 25vh;
+    position: absolute;
+    top: 26%;
+    left: 15%;
+
+
+}
+
+
+.contacts-list{
+
+     border: 1px solid black;
+     height: 60vh;
+     width: 30vh;
+     position: absolute;
+     top: 30%;
+     left:7%
+}
+
+.chatting{
+    display: flex;
+    align-items: center; 
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+
+}
+
+.chatting:hover{
+    background-color: #eeecec;
+}
+
+.chatting-image{
+    width: 14%;
+    height: 8%;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.chatting-name{
+    font-size: 20px;
+}
+
+
+.right-sidebar{
+
+    border: 2px solid red;
+    position: absolute;
+    top: 8%;
+    left:30%;
+    width: 63%;
+    padding-bottom: 5%;
+    
+    height: 80vh;
+    background-image: url("/images/miss-minutes-fingure.png");
+    /* Do not change files url as it is automatically taken by the backend chat-app-server */
+    background-repeat: no-repeat;
+    background-color:rgb(230,231,231);
+    background-position: center;
+    opacity: 0.8;
+    
+}
+.right-sidebar::before{
+    content: "Welcome to  miss minutes chats";
+    color: orange;
+    font-size: 30px;
+     display: block;
+     text-align: center;
+     
+
+    
+}
+
+
+.chatting-box-top{
+    display: flex;
+    flex-direction: column;
+    margin-top:25px;
+}
+.chatting-box-image{
+    width: 40px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+    
+}
+
+.message-top{
+    display: flex;
+
+}
+.message-bottom{
+    font-size: 15px;
+    margin-top:1px ;
+    margin-left: 1px;
+}
+.chatting-box-top.self{
+    align-items: flex-end;
+    margin-right:10px;
+}
+.chatting-box-top.self .chatText{
+    background-color: #f3c89d;
+    color: black;
+}
+
+.chatText{
+    padding: 10px;
+    border-radius: 20px;
+    background-color:rgb(129, 40, 40);
+    color: white;
+    max-width: 250px;
+
+}
+
+.chatting-box-bottom{
+    margin-top: 15px;
+    display: flex;
+    align-items: center ;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.send-chat-message{
+    width: 85%;
+    height: 50px;
+    border-radius: 6px;
+
+}
+
+.submit-button{
+    width: 100px;
+    height: 50;
+    border-radius: 12px;
+    font-size: 20px;
+    background-color: limegreen;
+    color: white;
+     border: none;
+     cursor: pointer;
+
+}
+
+
+
+
+
+.chatting-box-top{
+    border: 1px solid chartreuse;
+    height: 90%;
+    overflow-y: scroll;
+
+}
+
+  
+  
+
