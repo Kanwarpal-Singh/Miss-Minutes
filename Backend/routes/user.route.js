@@ -46,6 +46,7 @@ userRoute.post("/login",async(req,res)=>{
 
             res.cookie("accessToken", accessToken , {httpOnly:true})
             res.cookie("refreshToken", refreshToken , {httpOnly:true})
+            localStorage.setItem("user",JSON.stringify(user))
 
             res.status(200).send({"msg":"login Success",accessToken,refreshToken})
            }
