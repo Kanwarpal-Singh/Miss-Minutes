@@ -7,7 +7,7 @@
     <title>A Time Tracker App For Business</title>
     <link
       rel="icon"
-      href="./public/images/miss-minutes-shy.png"
+      href="./images/miss-minutes-shy.png"
       type="image/icon type"
     />
     <link rel="stylesheet" href="./styles/index.css" />
@@ -17,6 +17,7 @@
     />
   </head>
   <body>
+    <i class="fa-solid fa-link" id="stat_pin"></i>
     <!-- support chatbot -->
     <div id="chatbot">
       <i class="fa-regular fa-circle-question fa-bounce"></i>
@@ -29,7 +30,7 @@
         <i class="fa-solid fa-bars"></i>
       </div>
       <div class="navbar_left">
-        <img src="./public/images/miss-minutes-fingure.png" alt="" />
+        <img src="./images/miss-minutes-fingure.png" alt="" />
         <!-- ⌛ -->
         <span>Miss-Minutes</span>
       </div>
@@ -501,8 +502,10 @@
       <!-- Main section 4 -->
       <section id="main_section_4">
         <h1>Want to get the most out of your time? Try DeskTime for free!</h1>
-        <input type="text" placeholder="Your work email" />
-        <button id="sec_4_free">START FREE TRIAL</button>
+        <div>
+          <input type="text" placeholder="Your work email" />
+          <button id="sec_4_free">START FREE TRIAL</button>
+        </div>
         <p>
           Try free for 14 days. No credit card required. By signing up, you
           agree to our terms and privacy policy.
