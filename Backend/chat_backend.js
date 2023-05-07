@@ -3,7 +3,8 @@ const fs=require("fs")
 const path=require("path")
 const  socketio= require("socket.io");
 const http = require("http");
-const {UserModel}=require("./models/user.model")
+const {UserModel}=require("./models/user.model");
+const { userRoute } = require("./routes/chatting.routes");
 const app=express()
  app.use(express.json())
 const Path=path.join(__dirname,"../Frontend/")
@@ -14,9 +15,11 @@ console.log(Path,"dflsjkd")
 
 
 
+
 const server = http.createServer(app)
 
-
+app.use("/chat-api",userRoute)
+app.use("/messages",userRoute)
 app.get("/chat/frontend", async(req,res)=>{
 
       try {
@@ -28,6 +31,7 @@ app.get("/chat/frontend", async(req,res)=>{
         console.log(error)
       }
 })
+
 
 
 /// Socket.io  setup : used for biderctional communicataion and event-based communication
@@ -58,6 +62,8 @@ const getUser = (userId) => {
 io.on("connection", (socket) => {
   //when ceonnect
   console.log("a user connected.");
+   
+  socket.emit("Welcome","welcome mr.")
 
   //Taking  userId and socketId from user
   socket.on("addUser", (userId) => {

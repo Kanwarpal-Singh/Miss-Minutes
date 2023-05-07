@@ -1,18 +1,26 @@
-const userRoute=require("express").userRoute()
+const userRoute=require("express").Router()
+
 
 const {ChatprofileModel}=require("../models/chatting.model")
 
 
 
 // * Starting a new chatting
+userRoute.get("/test",(req,res)=>{
+ 
+   res.send("working finen")
+})
 
 userRoute.post("/", async (req, res) => {
-    const newChat = new ChatprofileModel({
+    const newChat =  new ChatprofileModel({
       members: [req.body.senderId, req.body.receiverId],
     });
+    console.log(newChat)
   
     try {
+    
       const savedChat = await newChat.save();
+      console.log(savedChat,"jsdfd")
       res.status(200).json(savedChat);
     } catch (err) {
       res.status(500).json(err);
@@ -26,9 +34,10 @@ userRoute.post("/", async (req, res) => {
       const chats = await ChatprofileModel.find({
         members: { $in: [req.params.userId] },
       });
+      console.log(chats)
       res.status(200).json(chats);
     } catch (err) {
-      res.status(500).json(err);
+      res.status(500).json(err.message);
     }
   });
   
