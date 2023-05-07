@@ -546,6 +546,7 @@ aside > p {
   background-color: var(--spicy-mix);
   font-size: 120%;
   text-align: center;
+ 
 }
 #main_section_4 h1 {
   color: white;
@@ -562,7 +563,6 @@ aside > p {
   width: 25%;
   padding: 0;
   margin: 0;
-  min-width: 18%;
   font-size: 100%;
   font-weight: bold;
   text-indent: 10px;
@@ -603,6 +603,7 @@ footer a:hover {
   padding-bottom: 3%;
   display: flex;
   justify-content: space-around;
+  overflow: hidden;
 }
 #footer_section_1 > div {
   display: flex;
@@ -656,6 +657,22 @@ footer a:hover {
 }
 
 /* Responsiveness */
+@media only screen and (min-width: 501px) and (max-width: 900px) {
+  #main_section_2 > div > div {
+    margin-bottom: 5%;
+  }
+  #main_section_2 > div > div > div {
+    width: 500px;
+    margin-bottom: 1%;
+  }
+  #main_section_2 > div > div > img {
+    height: 100%;
+    margin-top: 5%;
+  }
+  #sec_4_free {
+    font-size: small !important;
+  }
+}
 @media only screen and (min-width: 1185px) and (max-width: 1257px) {
   .header_video {
     margin-left: 50px;
@@ -772,6 +789,28 @@ footer a:hover {
   #main_article_1 {
     flex-direction: column-reverse;
   }
+  #main_section_4 h1 {
+    font-size: medium;
+  }
+  #main_section_4 > input {
+    font-size: 70%;
+  }
+  #main_section_4 p {
+    font-size: small;
+    width: 100%;
+  }
+  /* Footer section */
+
+  /* <!-- Footer section_1 --> */
+  #footer_section_1 {
+    display: grid;
+    gap: 5%;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  /* <!-- Footer section_2 --> */
+  #footer_section_2 {
+    margin-top: 5%;
+  }
 }
 /* medium screen  */
 @media (max-width: 900px) {
@@ -813,10 +852,20 @@ footer a:hover {
     flex-direction: column;
   }
   #main_section_2 > div > div {
-    flex-direction: row;
   }
   /* Main section 3 */
   /* Main section 4 */
+
+  /* <!-- Footer section_1 --> */
+  #footer_section_1 {
+    display: grid;
+    gap: 5%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* <!-- Footer section_2 --> */
+  #footer_section_2 {
+    margin-top: 15%;
+  }
 }
 
 /* small screen  */
@@ -842,6 +891,7 @@ footer a:hover {
   #main_section_2 > div > div {
     flex-direction: column;
   }
+  
 }
 
 /* extra small screen <--sharam kero itana chota mobile kyu lena bhai*/
