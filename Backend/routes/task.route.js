@@ -2,7 +2,7 @@ const express = require("express")
 const { role } = require("../middlewares/role.middleware");
 const { UserModel } = require("../models/user.model");
 const { TaskModel } = require("../models/task.model");
-const {ProjectModel} = require("../models/project.model")
+const {projectModel} = require("../models/project.model")
 
 const taskRoute = express.Router()
 
@@ -34,7 +34,7 @@ taskRoute.post("/create/:projectId", role(["Admin", "Manager"]), async (req, res
       { new: true }
     );
 
-    const updatedProject = await ProjectModel.findOneAndUpdate(
+    const updatedProject = await projectModel.findOneAndUpdate(
       { _id: projectId },
       { $push: { tasks: task._id } },
       { new: true }
@@ -66,7 +66,7 @@ taskRoute.get("/alltask", async (req, res) => {
 
 taskRoute.get("/project/:projectId", async (req, res) => {
   try {
-    const alltask = await ProjectModel.findOne({ _id: req.params.projectId }).populate('tasks');
+    const alltask = await projectModel.findOne({ _id: req.params.projectId }).populate('tasks');
     res.status(200).send({ data: alltask.tasks });
   } catch (error) {
     res.status(500).send({ message: error.message });

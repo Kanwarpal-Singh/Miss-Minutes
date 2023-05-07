@@ -1,19 +1,95 @@
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat-Miss-Minutes</title>
-    <link rel="stylesheet" href="/Frontend/styles/chat.css">
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Chat-Miss-Minutes</title>
+   <link rel="stylesheet" href="/styles/chat.css">
+
+   <!-- css path is right do not change :- refer chat_backend.js -->
+   <!-- this below script file is used for connecting soket backend file to frontend -->
+   <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+      integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+      crossorigin="anonymous"></script>
 </head>
+
 <body>
 
-  <div class="left-sidebar"></div>
 
-  
-        <div class="right-sidebar">
+   <div class="main">
+
+      <!-- Navbar -->
+      <nav>
+         THis is Nav bar Section
+      </nav>
+
+
+      <div class="left-sidebar">
+
+         <div class="profile-picture"></div>
+         <div class="user-name">User name </div>
+
+         <div class="contacts-list">
+
+            <div class="chatting">
+               <img class="chatting-image" src="/images/miss-minutes-fingure.png" alt="">
+               <span class="chatting-name">SurajBhan Singh</span>
+            </div>
+         </div>
+      </div>
+      <div class="right-sidebar">
+
+         <div class="chat-send-box">
+
+            <div class="chatting-box-top self">
+               <!-- <div class={self ? "chatting-box-top self" : "chatting-box-top"}> -->
+               <div class="message-top" self="true">
+                  <img class="chatting-box-image" src="/images/miss-minutes-fingure.png" alt="">
+                  <p class="chatText">Hleoo thisdfas sdf
+                     adsfajsdfkdsafl jks slfjsdlkf sdf </p>
+               </div>
+               <div class="message-bottom">
+                  1 hour ago
+               </div>
+
+               <div class="message-top">
+                  <img class="chatting-box-image" src="/images/miss-minutes-fingure.png" alt="">
+                  <p class="chatText">Hleoo thisdfas sdf
+                     adsfajsdfkdsafl jks slfjsdlkf sdf </p>
+               </div>
+               <div class="message-bottom">
+                  1 hour ago
+               </div>
+               
+               
+            </div>
+
             
-        </div>
+
+         </div>
+
+
+
+         <div class="chatting-box-bottom">
+
+            <textarea class="send-chat-message" placeholder="write here"></textarea>
+            <button class="submit-button" type="submit">Send</button>
+   
+         </div>
+
+      </div>
+
     
+
+   </div>
+   </div>
+
+   </div>
 </body>
+
+<script src="/scripts/chat.js"></script>
+<!-- This is a js file is used to connect with chat_backend.js so that socket.io can run
+ an make connection -->
+
 </html>

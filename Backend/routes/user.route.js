@@ -20,12 +20,13 @@ userRoute.get("/",async(req,res)=>{
 })
 
 userRoute.post("/signup",async(req,res)=>{
-    const {name,email,pass,role} = req.body
+
+    const {name,email,password,role} = req.body
     try {
         const user = await UserModel.findOne({email})
         if(user) return res.status(400).send({"msg":"User Already There Login"})
-        bcrypt.hash(pass, 5, async(err, hash)=> {
-            const newuser = new UserModel({name,email,pass:hash,role})
+        bcrypt.hash(password, 5, async(err, hash)=> {
+            const newuser = new UserModel({name,email,password:hash,role})
             await newuser.save()
             res.status(200).send({"msg":"Register Success"})
         });
@@ -34,6 +35,7 @@ userRoute.post("/signup",async(req,res)=>{
     }
 })
 
+
 userRoute.post("/login",async(req,res)=>{
     const {email,password} = req.body
     try {
@@ -41,8 +43,8 @@ userRoute.post("/login",async(req,res)=>{
         if(!user) return res.status(400).send({"msg":"register First"})
         bcrypt.compare(password, user.password, async(err, result) =>{
            if(result){
-            const accessToken = jwt.sign({UserId:`${user._id}`,role:user.role},"name",{expiresIn:"180s"})
-            const refreshToken = jwt.sign({UserId:`${user._id}`,role:user.role},"rename",{expiresIn:"300s"})
+            const accessToken = jwt.sign({UserId:`${user._id}`,role:user.role},"name",{expiresIn:"1h"})
+            const refreshToken = jwt.sign({UserId:`${user._id}`,role:user.role},"rename",{expiresIn:"3h"})
 
             res.cookie("accessToken", accessToken , {httpOnly:true})
             res.cookie("refreshToken", refreshToken , {httpOnly:true})

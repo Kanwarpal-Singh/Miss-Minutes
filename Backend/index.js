@@ -1,4 +1,5 @@
 const express  =require("express"); 
+const cookieParser = require("cookie-parser")
 var cors = require('cors')
 const {connection} = require("./config/db");
 const{userRoute} =require("./routes/user.route");
@@ -11,8 +12,7 @@ require ("dotenv").config();
 
 const app = express();
 app.use(express.json());
-app.use("/users",userRoute)
-app.use("/projects",projectRoute)
+app.use(cookieParser())
 app.use(cors())
 
 
@@ -22,8 +22,8 @@ app.get("/", (req,res) => {
 
 
 app.use("/user",userRoute)
-
-app.use("task",auth,taskRoute)
+app.use("/project",auth,projectRoute)
+app.use("/task",auth,taskRoute)
 
 
 

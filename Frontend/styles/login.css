@@ -1,0 +1,46 @@
+body{
+    margin: 0px;
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/954/5/66/code-programmers-programming-doom-game-wallpaper-preview.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    ;
+}
+
+#main{
+    width: 30%; 
+    height: 60%;;   
+    background: linear-gradient(to bottom,#0cc0df, #0cc0df, #ffffff);
+    margin: auto;
+    margin-top: 6%;
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+#main img{
+    width: 15%;
+    border-radius: 15px;
+}
+
+.form input{
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius:5px;
+}
+
+#submit{
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 600;
+    border:none;
+}
+
+#submit:hover{
+    background-color:#0cc0df;
+    cursor: pointer;
+    color:white;
+    font-weight: 600;
+    border:none;
+}

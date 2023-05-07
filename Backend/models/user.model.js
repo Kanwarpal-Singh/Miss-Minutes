@@ -1,14 +1,34 @@
 const mongoose = require("mongoose")
 
-const userSchema = mongoose.Schema({
-    name:String,
-    email:String,
-    password:String,
-    role: {type: String, enum: ["User", "Admin", "Super Admin"],default:"User"}
-},{
-    versionKey:false
-})
+const userSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    role: {
+        type: String,
+        enum: ['Admin', 'Manager', 'Employee'],
+        default: 'Employee'
+    },
+    assignedTasks: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Task'
+    }],
+    assignedProjects: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Project'
+    }]
+});
 
-const UserModel = mongoose.model("user",userSchema)
+const UserModel = mongoose.model("user", userSchema)
 
-module.exports={UserModel}
+module.exports = { UserModel }
