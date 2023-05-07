@@ -63,7 +63,7 @@ const footerSection = () => {
 </section>
 <section id="footer_section_2">
         <div class="footer_logo">
-          <img src="./images/miss-minutes-shy.png" alt="" />
+          <img src="./public/images/miss-minutes-shy.png" alt="" />
           <span>Miss-Minutes</span>
         </div>
         <div>
