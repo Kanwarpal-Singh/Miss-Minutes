@@ -20,6 +20,7 @@ userRoute.get("/",async(req,res)=>{
 })
 
 userRoute.post("/signup",async(req,res)=>{
+
     const {name,email,password,role} = req.body
     try {
         const user = await UserModel.findOne({email})
