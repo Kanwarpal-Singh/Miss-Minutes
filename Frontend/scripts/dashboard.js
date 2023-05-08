@@ -1,7 +1,6 @@
 const menuIconBtn = document.getElementById('menu-icon-btn');
 const menuIconBtn1 = document.getElementById('menu-icon1');
 const sidebar = document.getElementById('sidebar');
-
 const bar = document.getElementById("bar")
 const title = document.querySelector(".title")
 const links = document.querySelectorAll('.link');
@@ -16,21 +15,11 @@ menuIconBtn.addEventListener('click', () => {
    if(sidebar.style.width==="80px"){
     sidebar.style.width="250px"
     bar.style.marginLeft="250px"
-
-const title = document.querySelector(".title")
-const links = document.querySelectorAll('.link');
-
-menuIconBtn.addEventListener('click', () => {
-   if(sidebar.style.width==="80px"){
-    sidebar.style.width="250px"
-
     title.style.display="block"
     links.forEach(link => link.style.display = "block");
    }else{
     sidebar.style.width="80px"
-
     bar.style.marginLeft="80px"
-
     title.style.display="none"
     links.forEach(link => link.style.display = "none");
    }
@@ -65,19 +54,12 @@ bellicon.addEventListener("click",()=>{
     }
 })
 
-
 const user = JSON.parse(sessionStorage.getItem("user")) || "";
 console.log(user.name)
 let username = document.getElementById("username")
 username.textContent = user.name
 const userlogo = document.getElementById("userlogo");
 userlogo.textContent = username.textContent.charAt(0).toUpperCase();
-
-
-const username = document.getElementById("username").textContent;
-const userlogo = document.getElementById("userlogo");
-userlogo.textContent = username.charAt(0).toUpperCase();
-
 
 
 function toggleDropdown1(dropdown1) {
@@ -87,8 +69,6 @@ function toggleDropdown1(dropdown1) {
     dropdown1.style.display = 'none';
   }
 }
-
-
 
 let token = localStorage.getItem("token") || ""
 console.log(token)
