@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
-const chatProfileSchema = new mongoose.Schema(
-    {
+const chatProfileSchema =  mongoose.Schema(
+ {
       members: {
         type: Array,
       },
@@ -13,3 +13,7 @@ const chatProfileSchema = new mongoose.Schema(
 const ChatprofileModel = mongoose.model("chatsProfilechatting",chatProfileSchema)
 
 module.exports={ChatprofileModel}
+
+
+
+ 

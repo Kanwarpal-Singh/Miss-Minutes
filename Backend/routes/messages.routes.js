@@ -1,4 +1,4 @@
-const userRoute=require("express").userRoute()
+const messageRoute=require("express").Router()
 
 const {MessageModel}=require("../models/message.model")
 
@@ -6,8 +6,9 @@ const {MessageModel}=require("../models/message.model")
 
 //add
 
-userRoute.post("/", async (req, res) => {
+messageRoute.post("/", async (req, res) => {
     const newMessage = new MessageModel(req.body);
+    console.log(newMessage)
   
     try {
       const messageSaved = await newMessage.save();
@@ -19,14 +20,16 @@ userRoute.post("/", async (req, res) => {
   
   //get
   
-  userRoute.get("/:messagingId", async (req, res) => {
+  messageRoute.get("/:chattingId", async (req, res) => {
     try {
       const messages = await MessageModel.find({
-        messagingId: req.params.messagingId,
+        chattingId: req.params.chattingId,
+        
       });
       res.status(200).json(messages);
     } catch (err) {
       res.status(500).json(err);
+
     }
   });
 
@@ -34,4 +37,4 @@ userRoute.post("/", async (req, res) => {
 
 
 
-module.exports={userRoute}
+module.exports={messageRoute}
