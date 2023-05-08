@@ -1,0 +1,111 @@
+#project-page{
+    width: 100%;
+    background-color: rgb(197, 150, 106);
+    height: 900px;
+}
+#project-bar{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:75%;
+    padding: 20px 0px 20px 0px;
+    height:60px;
+    width: 100%;
+    align-items: center;
+    /* background-color: rgb(175, 157, 120); */
+}
+
+#create{
+    width: 150px;
+    padding:10px 40px;
+    background-color: white;
+    color: rgb(221, 179, 106);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-right: 2%;
+    text-align: center;
+}
+#project_heading{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 33px;
+    /* width: 100%; */
+    /* border: 1px solid green; */
+    margin-left: 4%;
+}
+#project-functions{
+    /* width: 95%; */
+    gap:3%;
+    /* border: 1px solid red; */
+    display: flex;
+}
+#sort{
+    width: 150px;
+    background-color: white;
+    color: rgb(221, 179, 106);
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+#filter{
+    width: 150px;
+    background-color: white;
+    color: rgb(221, 179, 106);
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-right: 2%;
+}
+
+#projects-details {
+    width: 98%;
+    margin: 4% 1% 0% 1%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .project_cards {
+    width: 97.5%;
+    padding: 2%;
+    height: 110px;
+    background-color: bisque;
+  }
+  
+#projects-info{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:55%;
+    padding: 20px 0px 20px 0px;
+    height:60px;
+    width: 100%;
+    align-items: center;
+    /* background-color: rgb(175, 157, 120); */
+}
+#see-datails{
+    width: 150px;
+    background-color: white;
+    color: rgb(221, 179, 106);
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-right: 2%;
+    margin-top: 2%;
+    margin-left: 2%
+}
+#project-table{
+    margin-top: 3%;
+    background-color: bisque;
+    padding: 10px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+td {
+    height: 50px;
+    padding: 0 15px;
+    border: 1px solid black;
+}
