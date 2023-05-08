@@ -2,11 +2,13 @@ const express = require("express")
 const { role } = require("../middlewares/role.middleware");
 const { UserModel } = require("../models/user.model");
 const { TaskModel } = require("../models/task.model");
-const {projectModel} = require("../models/project.model")
+const { projectModel } = require("../models/project.model")
 
 const taskRoute = express.Router()
 
-
+taskRoute.get("/", (req, res) => {
+  res.send("hello")
+})
 
 taskRoute.post("/create/:projectId", role(["Admin", "Manager"]), async (req, res) => {
   try {
@@ -23,16 +25,20 @@ taskRoute.post("/create/:projectId", role(["Admin", "Manager"]), async (req, res
       description,
       assignedTo: employee._id,
       createdBy: req.body.UserId,
-      ProjectId: req.params.projectId
+      projectId: req.params.projectId
     });
 
     await task.save();
+    const updatedUser = await UserModel.findOne({ _id: assignedTo });
 
-    const updatedUser = await UserModel.findOneAndUpdate(
-      { _id: assignedTo },
-      { $push: { assignedTasks: task._id } },
-      { new: true }
-    );
+    if (!updatedUser.assignedProjects.includes(projectId)) {
+      updatedUser.assignedProjects.push(projectId);
+    }
+
+    updatedUser.assignedTasks.push(task._id);
+    await updatedUser.save();
+
+
 
     const updatedProject = await projectModel.findOneAndUpdate(
       { _id: projectId },
@@ -60,7 +66,7 @@ taskRoute.get("/alltask", async (req, res) => {
     res.status(500).send({ message: error.message });
   }
 });
- 
+
 // all the task of one project 
 
 
@@ -77,40 +83,100 @@ taskRoute.get("/project/:projectId", async (req, res) => {
 // task by id
 
 
-taskRoute.get("/:id",async(req,res)=>{
+taskRoute.get("/:id", async (req, res) => {
   try {
     const id = req.params.id
 
-    const task = await TaskModel.findById({_id:id})
+    const task = await TaskModel.findById({ _id: id })
 
-    res.status(200).send({"message":"Task Found",task});
+    res.status(200).send({ "message": "Task Found", task });
 
   } catch (error) {
     res.status(500).send({ message: error.message });
 
   }
 })
+// emp   assignto 
 
-  taskRoute.patch("/update/:id",role(["Admin","Manager"]),async(req,res)=>{
-   
-    try {
-        let id = req.params.id
-        let payload = req.body
-      const task = await TaskModel.findByIdAndUpdate({_id:id},payload,{new:true})
-      res.status(200).send({"message":"tasks is Updated successfully",task})
-    } catch (error) {
-      res.status(400).send({ message: 'Server error', error });
-    }
-  })
-  taskRoute.delete("/delete/:id",role(["Admin","Manager"]),async(req,res)=>{
-   
-    try {
-        let id = req.params.id
-      const task = await TaskModel.findByIdAndDelete({_id:id})
-      res.status(200).send({"message":"Tasks is deleted successfully"})
-    } catch (error) {
-      res.status(400).send({ message: 'Server error', error });
-    }
-  })
+taskRoute.patch("/update-assignee/:id", role(["Admin", "Manager"]), async (req, res) => {
+  try {
+    const taskId = req.params.id;
+    const newAssigneeId = req.body.newAssigneeId;
 
-module.exports={taskRoute}
+    // Check if newAssigneeId is a valid employee
+    const newAssignee = await UserModel.findOne({ _id: newAssigneeId, role: 'Employee' });
+    if (!newAssignee) {
+      return res.status(400).send('New assignee not found or not an employee');
+    }
+
+    const task1 = await TaskModel.findOne({_id:taskId})
+
+    // Remove the task from the previous assignee's assignedTasks array
+    const prevAssignee = await UserModel.findOne({ _id: task1.assignedTo });
+    prevAssignee.assignedTasks.pull(task1._id);
+    await prevAssignee.save();
+
+
+    // Find the task and update the assignedTo field
+    const task = await TaskModel.findOneAndUpdate(
+      { _id: taskId },
+      { assignedTo: newAssigneeId },
+      { new: true }
+    );
+
+    // Add the task to the new assignee's assignedTasks array
+    newAssignee.assignedTasks.push(task._id);
+
+    if (!newAssignee.assignedProjects.includes(task.projectId)) {
+      newAssignee.assignedProjects.push(task.projectId)
+    }
+    
+    
+    await newAssignee.save();
+
+   // Remove the project id from the previous assignee's assignedProjects array
+    const projectId = task.projectId;
+    if (prevAssignee.assignedProjects.includes(projectId)) {
+      const projectTasks = await TaskModel.find({ projectId: projectId });
+      const projectTasksAssignedToPrev = projectTasks.filter(task => task.assignedTo.toString() === prevAssignee._id.toString());
+      if (projectTasksAssignedToPrev.length === 0) {
+        prevAssignee.assignedProjects.pull(projectId);
+        await prevAssignee.save();
+      }
+    }
+
+    res.status(200).send({ "message": "Assigned to updated successfully", task });
+
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+});
+
+
+
+taskRoute.patch("/update/:id", role(["Admin", "Manager"]), async (req, res) => {
+
+  try {
+    let id = req.params.id
+    let payload = req.body
+    const task = await TaskModel.findByIdAndUpdate({ _id: id }, payload, { new: true })
+    res.status(200).send({ "message": "tasks is Updated successfully", task })
+  } catch (error) {
+    res.status(400).send({ message: 'Server error', error });
+  }
+})
+taskRoute.delete("/delete/:id", role(["Admin", "Manager"]), async (req, res) => {
+
+  try {
+    let id = req.params.id
+    const task = await TaskModel.findByIdAndDelete({ _id: id })
+    res.status(200).send({ "message": "Tasks is deleted successfully" })
+  } catch (error) {
+    res.status(400).send({ message: 'Server error', error });
+  }
+})
+
+module.exports = { taskRoute }
+
+
+// get all the user that are in project
