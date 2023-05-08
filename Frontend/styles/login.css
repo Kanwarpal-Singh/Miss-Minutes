@@ -1,46 +1,216 @@
-body{
-    margin: 0px;
-    background-image: url("https://c4.wallpaperflare.com/wallpaper/954/5/66/code-programmers-programming-doom-game-wallpaper-preview.jpg");
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    ;
+/* CSS HEX */
+* {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+:root {
+  --sea-buckthorn: #fb922b;
+  --paco: #4e1d13;
+  --aths-special: #f0e7d7;
+  --spicy-mix: #7c5040;
+  --desert: #b1581b;
+  --golden-tainoi: #fccb5b;
+  --copper-canyon: #8c3c14;
+  --pharlap: #a18174;
+  --copper: #b57532;
+}
+body {
+  margin: 0px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+main {
+  display: flex;
+  gap: 4%;
+  min-height: 100vh;
+  background-image: url(../images/miss-minutes-shy.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position: 100% 62%;
+  background-color: #f5f5f6;
+}
+#login_form {
+  height: 100vh;
+  width: 40%;
+  padding: 10px;
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.logo,
+.form_heading,
+form,
+.Oauth {
+  margin-left: 30%;
+  margin-right: 10%;
+}
+.logo,
+.form_heading div {
+  color: #333c43;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 5px;
+  min-height: 40px;
+  margin-top: 2%;
+}
+.logo img {
+  max-width: 20%;
+}
+.logo span {
+  font-size: 170%;
+  font-weight: bolder;
 }
 
-#main{
-    width: 30%; 
-    height: 60%;;   
-    background: linear-gradient(to bottom,#0cc0df, #0cc0df, #ffffff);
+.form_heading div {
+  font-size: 220%;
+  font-weight: bold;
+  margin-top: 5%;
+}
+.form_heading p {
+  color: #475056;
+  margin-bottom: 5%;
+}
+.form_heading a {
+  color: #475056;
+  font-weight: bold;
+}
+.form_heading a:hover {
+  color: black;
+}
+
+form {
+  padding-top: 2%;
+  padding-bottom: 4%;
+  border-bottom: 1px solid rgba(149, 157, 165, 0.2);
+}
+form label {
+  color: #475056;
+}
+form input[type="email"],
+form input[type="password"] {
+  min-height: 40px;
+  width: 90%;
+  text-indent: 10px;
+  font-size: 100%;
+  margin-top: 2%;
+  margin-bottom: 4%;
+}
+form input[type="submit"] {
+  min-height: 40px;
+  width: 92%;
+  border: 1px solid var(--paco);
+  border-radius: 4px;
+  font-size: 100%;
+  color: white;
+  background-color: var(--paco);
+  margin-top: 3%;
+  margin-bottom: 5%;
+  cursor: pointer;
+}
+form input[type="submit"]:hover {
+  color: var(--aths-special);
+  background: var(--spicy-mix);
+}
+form a {
+  color: #333c43;
+}
+
+.Oauth {
+  margin-top: 5%;
+}
+.Oauth > div:nth-child(1) {
+  font-weight: bolder;
+  margin-bottom: 4%;
+}
+.Oauth > div:nth-child(2) {
+  display: flex;
+  gap: 5%;
+  justify-content: left;
+}
+.Oauth i {
+  font-size: 200%;
+  color: white;
+  background: var(--paco);
+  padding: 6px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.Oauth i:hover {
+  animation: jump 0.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes jump {
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+main > img {
+  align-self: center;
+  text-align: center;
+  height: 100%;
+  width: 50%;
+}
+
+@media (max-width: 1185px) {
+  .logo,
+  .form_heading,
+  form,
+  .Oauth {
+    margin: 0;
     margin: auto;
-    margin-top: 6%;
-    border-radius: 20px;
+  }
+
+  #login_form {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+  main > img {
+    display: none;
+  }
+  .logo {
+    gap: 10px;
+    min-height: 5px;
+    margin-top: 1%;
+  }
+  .logo img {
+    max-width: 15%;
+  }
+  .form_heading div {
+    margin-top: -50px;
+  }
+  .form_heading p {
+    margin-bottom: 0;
+  }
+
+  form {
+    margin-top: 10px;
+    padding-top: -10px;
+    padding-bottom: 4%;
+    width: 90%;
     text-align: center;
-    padding: 20px;
+  }
+  form {
+    text-align: left !important;
+  }
+  .Oauth {
+    margin-top: 0;
+    text-align: center;
+  }
+  #labell {
+    text-align: left;
+  }
 }
 
-#main img{
-    width: 15%;
-    border-radius: 15px;
-}
-
-.form input{
-    margin-bottom: 20px;
-    padding: 10px;
-    border-radius:5px;
-}
-
-#submit{
-    border-radius: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-weight: 600;
-    border:none;
-}
-
-#submit:hover{
-    background-color:#0cc0df;
-    cursor: pointer;
-    color:white;
-    font-weight: 600;
-    border:none;
+@media only screen and (min-width: 935px) and (max-width: 1184px) {
+  .form_heading div {
+    margin-top: 0%;
+  }
 }
