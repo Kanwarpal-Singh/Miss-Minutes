@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="/Frontend/styles/dashboard.css">
+    <link rel="stylesheet" href="./styles/project.css">
 </head>
 
 <body>
@@ -88,7 +89,7 @@
 
 
                     <div id="user">
-                        <h3 id="username" onclick="toggleDropdown1(document.getElementById('dropdown1'))">Kuldeep</h3>
+                        <h3 id="username" onclick="toggleDropdown1(document.getElementById('dropdown1'))"></h3>
                         <div id="userlogo" onclick="toggleDropdown1(document.getElementById('dropdown1'))"></div>
                          
 
@@ -118,6 +119,82 @@
 
                 </div>
 
+            </div>
+            <div id="projects-content">
+                <div id="project-page">
+                    <div id="project-bar">
+                        <div id="project_heading">Projects</div>
+                        <div id="create">Create Project</div>
+                    </div>
+                    <div id="projects-details">
+                        <div id="total_projects" class="project_cards">
+                            <p class="total_projects_head">Total Projects</p>
+                            <h2 class="total_projects_num">0</h2>
+                        </div>
+                        <div id="in_progress" class="project_cards">
+                            <p id="in_progress_head">Projects In-Progress</p>
+                            <h2 id="in_progress_num">0</h2>
+                        </div>
+                        <div id="completed" class="project_cards">
+                            <p id="completed_head">Projects Completed</p>
+                            <h2 id="completed_num">0</h2>
+                        </div>
+                        <div id="teams" class="project_cards">
+                            <p id="teams_head">Total Teams</p>
+                            <h2 id="teams_num">0</h2>
+                        </div>
+                        <div id="employees" class="project_cards">
+                            <p id="employees_head">Employees</p>
+                            <h2 id="employess_num">0</h2>
+                        </div>
+                        <div id="averagetasks" class="project_cards">
+                            <p id="averagetasks_head">Average Task/Project</p>
+                            <h2 id="averagetasks_num">0</h2>
+                        </div>
+                    </div>
+                    <div id="projects-info">
+                        <div id="project_heading">Projects Details</div>
+                        <div id="project-functions">
+                            <select name="sortbytime" id="sort">
+                                <option value="sortbytime">Sort by Time</option>
+                                <option value="latest">Latest Projects</option>
+                                <option value="earliest">Earliest Projects</option>
+                            </select>
+                            
+                            <select name="filter" id="filter">
+                                <option value="filter">Filter by Status</option>
+                                <option value="completed">Completed Projects</option>
+                                <option value="in-progress">In Progress Projects</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button id="see-datails" onclick="seeProjects()">See Projects</button>
+                    <div id="project-table">
+                        <table>
+                            <tr>
+                              <th>Project Name</th>
+                              <th>Created On</th>
+                              <th>Managed By</th>
+                              <th>Tasks</th>
+                              <th>See Details</th>
+                            </tr>
+                            <tr>
+                              <td>Row 1, Column 1</td>
+                              <td>Row 1, Column 2</td>
+                              <td>Row 1, Column 3</td>
+                              <td>Row 1, Column 4</td>
+                              <td>Row 1, Column 5</td>
+                            </tr>
+                            <tr>
+                              <td>Row 2, Column 1</td>
+                              <td>Row 2, Column 2</td>
+                              <td>Row 2, Column 3</td>
+                              <td>Row 2, Column 4</td>
+                              <td>Row 2, Column 5</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
 
