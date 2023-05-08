@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="./styles/dashboard.css">
+    <link rel="stylesheet" href="./styles/task.css">
+</head>
+
+<body>
+    <div id="wrapprer">
+        <div id="sidebar" class="sidebar-collapsed">
+            <div class="logo">
+                <img src="/Frontend/images/marvel-miss-minutes-logo.png" alt="logo">
+                <h1 class="title">Miss-Minutes</h1>
+            </div>
+
+            <div id="cards">
+                <ul>
+                    <li class="card active">
+                        <a href="#">
+                            <div class="icon">
+                                <i class="fa fa-tachometer"></i>
+                            </div>
+                            <span class="link">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="#">
+                            <div class="icon">
+                                <i class="fa fa-clock-o"></i>
+                            </div>
+                            <span class="link">My Desk Time</span>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="#">
+                            <div class="icon">
+                                <i class="fa fa-tasks"></i>
+                            </div>
+                            <span class="link">Project</span>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="#">
+                            <div class="icon">
+                                <i class="fa fa-users"></i>
+                            </div>
+                            <span class="link">Team Member</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+        <div id="bar">
+            <div id="mainbar">
+                <div id="leftmainbar">
+                    <div id="menu-icon">
+                        <i id="menu-icon-btn" class="fa fa-bars"></i>
+                    </div>
+                    <div id="menu-icon1">
+                        <i id="menu-icon-btn" class="fa fa-bars"></i>
+                    </div>
+                    <div id="searchbar">
+                        <input type="text" name="" id="search" placeholder="Search">
+                        <i class="fa fa-search"></i>
+                    </div>
+                </div>
+                <div id="rightmainbar">
+                    <div id="messageicon">
+                        <i class="fa fa-comment"></i>
+                    </div>
+
+                    <div id="bell-icon">
+                        <i class="fa fa-bell"></i>
+                    </div>
+                    <div class="popup">
+                        <i id="bell" class="fa fa-bell"></i>
+                        <h2 class="text">No new notifications. Keep on working!</h2>
+                    </div>
+                    <div id="addnotification"></div>
+
+
+                    <div id="user">
+                        <h3 id="username" onclick="toggleDropdown1(document.getElementById('dropdown1'))"></h3>
+                        <div id="userlogo" onclick="toggleDropdown1(document.getElementById('dropdown1'))"></div>
+                         
+
+                        <div class="dropdown1" id="dropdown1">
+                            <div class="left1">
+                                <div class="first1">
+                                    <h4>Profile</h4>
+                                    <hr>
+                                </div>
+                                <div class="second1">
+                                    <h4>Report a bug</h4>
+                                    <hr>
+                                </div>
+                                <div class="third1">
+                                    <h4>Schedule a support call</h4>
+                                    <hr>
+                                </div>
+                                <div class="four1">
+                                    <h4 id="logout">Log out</h4>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <div id="project-title">
+                <h4 id="title-1">Time1</h4>
+                <div id="project-title-right">
+                    <div class="create-task"> <span class="plus">+</span>New Task</div>
+                    <div class="Edit">Edit Task</div>
+                </div>
+            </div>
+            
+            <div>
+                <p id="back-btn">&lt; Back To The All Projects</p>
+            </div>
+
+
+            <div id="details">
+                <div class="details-card">
+                    <h5 class="heading">
+                        DATE CREATED
+                    </h5>
+                    <p id="details-date">
+                        July,24 2021
+                    </p>
+                </div>
+                <div class="details-card">
+                    <h5 class="heading">
+                        CURRENCY
+                    </h5>
+
+                    <p id="details-currency">
+                        USD
+                    </p>
+                </div>
+                <div class="details-card">
+                    <h5 class="heading">
+                        HOUR RATE
+                    </h5>
+                </div>
+                <div class="details-card">
+                    <h5 class="heading">
+                        ESTIMATE TIME
+                    </h5>
+                </div>
+                <div class="details-card">
+                    <h5 class="heading">
+                        ESTIMATE COSTS
+                    </h5>
+                </div>
+                <div class="details-card">
+                    <h5 class="heading">
+                        STATUS
+                    </h5>
+
+                    <p id="details-status">
+                        Active
+                    </p>
+                </div>
+                <div class="details-card">
+                    <h5 class="heading">
+                        EMPLOYEES
+                    </h5>
+                    <p id="details-total-employee">
+                        5
+                    </p>
+                </div>
+                <div class="details-card">
+                    <h5 class="heading">
+                        TASKS
+                    </h5>
+                    <p id="details-total-task">
+                        15
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script src="./scripts/dashboard.js"></script>
+<script src="./scripts/task.js"></script>
+
+</html>

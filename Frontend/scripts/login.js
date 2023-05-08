@@ -3,6 +3,8 @@ let emailInput = document.getElementById("email");
 let passwordInput = document.getElementById("pass");
 
 
+const user = JSON.parse(sessionStorage.getItem("user")) || "";
+
 const url ="http://localhost:8080/user/login"
 
 form.addEventListener("submit", (e) => {
@@ -20,12 +22,20 @@ form.addEventListener("submit", (e) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.msg);
+        console.log(data.user);
         if (data.msg === "login Success"){
             alert(data.msg);
             emailInput.value = "";
             passwordInput.value = "";
-             window.location.href = "/Frontend/dashboard.html";
+            const user = {
+              name: data.user.name,
+              role: data.user.role,
+              assignedTasks: data.user.assignedTasks || [],
+              assignedProjects: data.user.assignedProjects || [],
+            };
+            sessionStorage.setItem("user", JSON.stringify(user));
+            localStorage.setItem("token", data.accessToken);
+             window.location.href = "/frontend/dashboard.html";
         }else{
             alert(data.msg);
             emailInput.value = "";
