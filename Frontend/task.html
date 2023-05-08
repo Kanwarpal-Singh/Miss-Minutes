@@ -121,79 +121,129 @@
 
             </div>
 
+             <div id="task">
 
-            <div id="project-title">
-                <h4 id="title-1">Time1</h4>
-                <div id="project-title-right">
-                    <div class="create-task"> <span class="plus">+</span>New Task</div>
-                    <div class="Edit">Edit Task</div>
-                </div>
-            </div>
-            
-            <div>
-                <p id="back-btn">&lt; Back To The All Projects</p>
-            </div>
+                 <div id="project-title">
+                     <h4 id="title-1"></h4>
+                     <div id="project-title-right">
+                         <div class="create-task" onclick="toggleDropdown3(document.getElementById('createTaskform'))"> <span class="plus">+</span>New Task</div>
+                         <div class="Edit">Edit Task</div>
+                     </div>
+                 </div>
+                 
+                 <div>
+                     <p id="back-btn">&lt; Back To The All Projects</p>
+                 </div>
 
 
-            <div id="details">
-                <div class="details-card">
-                    <h5 class="heading">
-                        DATE CREATED
-                    </h5>
-                    <p id="details-date">
-                        July,24 2021
-                    </p>
+                 <div id="createTaskform" class="createTaskform">
+                   
+                    <form id="create-task-form">
+                      <label for="title">Title:</label>
+                      <input type="text" id="task-form-title" name="title" required><br><br>
+                      
+                      <label for="description">Description:</label>
+                      <textarea id="description" name="description" required></textarea><br><br>
+                      
+                      <label for="assignby">Assigned By:</label>
+                      <select id="assignby" name="assignby" required>
+                        <!-- options will be dynamically added by JavaScript -->
+                      </select><br><br>
+                      
+                      <label for="project-title">Project Title:</label>
+                      <input type="text" id="project-title-task-form" name="project-title" required style="margin: -25px; margin-left: auto;
+                      margin-right: 2px;">
+                      <br><br>
+                      
+                      <label for="status">Status:</label>
+                      <select id="status" name="status" required>
+                        <option value="Not Started">Not Started</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                      </select><br><br>
+                      
+                      <input type="submit" value="Create Task">
+                    </form>
                 </div>
-                <div class="details-card">
-                    <h5 class="heading">
-                        CURRENCY
-                    </h5>
+     
+     
+                 <div id="details">
+                     <div class="details-card">
+                         <h5 class="heading">
+                             DATE CREATED
+                         </h5>
+                         <p id="details-date">
+                            
+                         </p>
+                     </div>
+                     <div class="details-card">
+                         <h5 class="heading">
+                             CURRENCY
+                         </h5>
+     
+                         <p id="details-currency">
+                             USD
+                         </p>
+                     </div>
+                     <div class="details-card">
+                         <h5 class="heading">
+                             HOUR RATE
+                         </h5>
+                     </div>
+                     <div class="details-card">
+                         <h5 class="heading">
+                             ESTIMATE TIME
+                         </h5>
+                     </div>
+                     <div class="details-card">
+                         <h5 class="heading">
+                             ESTIMATE COSTS
+                         </h5>
+                     </div>
+                     <div class="details-card">
+                         <h5 class="heading">
+                             STATUS
+                         </h5>
+     
+                         <p id="details-status">
+                             
+                         </p>
+                     </div>
+                     <div class="details-card">
+                         <h5 class="heading">
+                             EMPLOYEES
+                         </h5>
+                         <p id="details-total-employee">
+                         </p>
+                     </div>
+                     <div class="details-card">
+                         <h5 class="heading">
+                             TASKS
+                         </h5>
+                         <p id="details-total-task">
+                
+                         </p>
+                     </div>
+                 </div>
 
-                    <p id="details-currency">
-                        USD
-                    </p>
-                </div>
-                <div class="details-card">
-                    <h5 class="heading">
-                        HOUR RATE
-                    </h5>
-                </div>
-                <div class="details-card">
-                    <h5 class="heading">
-                        ESTIMATE TIME
-                    </h5>
-                </div>
-                <div class="details-card">
-                    <h5 class="heading">
-                        ESTIMATE COSTS
-                    </h5>
-                </div>
-                <div class="details-card">
-                    <h5 class="heading">
-                        STATUS
-                    </h5>
 
-                    <p id="details-status">
-                        Active
-                    </p>
+                 <div id="task-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Task Name</th>
+                                <th>Created On</th>
+                                <th>Assign To</th>
+                                <th>Created By</th>
+                                <th>See Details</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                          <!-- Update the rows here using jsvascript -->
+                        </tbody>
+                      </table>
                 </div>
-                <div class="details-card">
-                    <h5 class="heading">
-                        EMPLOYEES
-                    </h5>
-                    <p id="details-total-employee">
-                        5
-                    </p>
-                </div>
-                <div class="details-card">
-                    <h5 class="heading">
-                        TASKS
-                    </h5>
-                    <p id="details-total-task">
-                        15
-                    </p>
-                </div>
-            </div>
+             </div>
         </div>
 
     </div>

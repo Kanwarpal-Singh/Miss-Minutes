@@ -12,6 +12,15 @@ const userRoute = express.Router()
 userRoute.get("/",async(req,res)=>{
     try {
         const users = await UserModel.find()
+        res.send(users)
+    } catch (err) {
+        res.send(err.message)
+    }
+})
+
+userRoute.get("/employee",async(req,res)=>{
+    try {
+        const users = await UserModel.find({role:"Employee"})
         console.log(users)
         res.send(users)
     } catch (err) {
@@ -43,7 +52,7 @@ userRoute.post("/login",async(req,res)=>{
         bcrypt.compare(password, user.password, async(err, result) =>{
             if(err) return res.status(400).send("Wrong Password")
            if(result){
-            const accessToken = jwt.sign({UserId:`${user._id}`,role:user.role},"name",{expiresIn:"1h"})
+            const accessToken = jwt.sign({UserId:`${user._id}`,role:user.role},"name",{expiresIn:"3h"})
             const refreshToken = jwt.sign({UserId:`${user._id}`,role:user.role},"rename",{expiresIn:"3h"})
 
             
@@ -58,6 +67,24 @@ userRoute.post("/login",async(req,res)=>{
         res.status(400).send({"msg":error.message})
     }
 })
+
+userRoute.get("/:id",auth,async(req,res)=>{
+    try {
+        const id = req.params.id
+
+        const user =  await UserModel.findOne({_id:id})
+
+        if(!user) return res.status(400).send({"msg":"No User"})
+
+        res.status(200).send({"user":user})
+     } catch (error) {
+        res.status(400).send({"msg":error.message})
+    }
+})
+
+
+    
+  
 
 userRoute.get("/logout", auth, async (req, res) => {
     try {

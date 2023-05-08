@@ -13,9 +13,11 @@ taskRoute.get("/", (req, res) => {
 taskRoute.post("/create/:projectId", role(["Admin", "Manager"]), async (req, res) => {
   try {
     const projectId = req.params.projectId;
-    const { title, description, assignedTo } = req.body;
+    const { title, description, assignedTo ,startTime,status} = req.body;
 
     const employee = await UserModel.findOne({ _id: assignedTo, role: 'Employee' });
+
+    console.log(employee)
     if (!employee) {
       return res.status(400).send('Assigned user not found or not an employee');
     }
@@ -25,10 +27,14 @@ taskRoute.post("/create/:projectId", role(["Admin", "Manager"]), async (req, res
       description,
       assignedTo: employee._id,
       createdBy: req.body.UserId,
+      status,
+      startTime,
       projectId: req.params.projectId
     });
 
     await task.save();
+
+    console.log(task)
     const updatedUser = await UserModel.findOne({ _id: assignedTo });
 
     if (!updatedUser.assignedProjects.includes(projectId)) {
@@ -73,7 +79,7 @@ taskRoute.get("/alltask", async (req, res) => {
 taskRoute.get("/project/:projectId", async (req, res) => {
   try {
     const alltask = await projectModel.findOne({ _id: req.params.projectId }).populate('tasks');
-    res.status(200).send({ data: alltask.tasks });
+    res.status(200).send({ "data": alltask.tasks });
   } catch (error) {
     res.status(500).send({ message: error.message });
   }
@@ -175,6 +181,37 @@ taskRoute.delete("/delete/:id", role(["Admin", "Manager"]), async (req, res) => 
     res.status(400).send({ message: 'Server error', error });
   }
 })
+
+
+//  total employee
+
+taskRoute.get('/:projectId/users', async (req, res) => {
+  const projectId = req.params.projectId;
+
+  try {
+    const project = await projectModel
+      .findById(projectId)
+      .populate('tasks', 'assignedTo');
+
+    if (!project) {
+      return res.status(404).send('Project not found');
+    }
+
+    const assignedUserIds = new Set();
+    project.tasks.forEach(task => {
+      task.assignedTo && assignedUserIds.add(task.assignedTo.toString());
+    });
+
+    const assignedUsers = await UserModel.find({
+      _id: { $in: Array.from(assignedUserIds) },
+    });
+
+    return res.status(200).send({"assignedUsers":assignedUsers.length});
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send('Server error');
+  }
+});
 
 module.exports = { taskRoute }
 
