@@ -4,17 +4,23 @@
     box-sizing: border-box;
 }
 
+#task{
+    background-color: rgb(197, 150, 106);
+    
+}
+
 #project-title {
-    margin-top: 25px;
     margin-left: 40px;
     display: flex;
     align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #title-1 {
     font-size: 26px;
     font-weight: 400;
     line-height: 31px;
+    margin-top: 25px;
 }
 
 #back-btn {
@@ -37,16 +43,17 @@
     align-items: center;
     margin-left: auto;
     margin-right: 80px;
+    margin-top: 25px;
 }
 
 .create-task,
 .Edit {
-    border: 1px solid #4ea819;
-    background-color: #4ea819;
+    /* border: 1px solid #4ea819; */
+    background-color: white;
     text-align: center;
     margin-left: 15px;
     padding: 10px;
-    color: white;
+    color: rgb(221, 179, 106);
     font-size: 18px;
     display: flex;
     align-items: center;
@@ -72,6 +79,7 @@
 
 .details-card{
     height: 140px;
+    background-color: bisque;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
@@ -108,3 +116,77 @@
     line-height: 50px;
     margin-top: 25px;
 }
+
+
+#task-table{
+    margin-top: 3%;
+    background-color: bisque;
+    padding: 10px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+td ,th {
+    height: 50px;
+    padding: 0 15px;
+    border: 1px solid black;
+}
+
+
+#createTaskform{
+    display: none;
+}    
+
+
+#create-task-form {
+    width: 500px;
+    position: fixed;
+    top:80px;
+    left: 35%; 
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #e0dfdf ;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 1;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  
+  
+  
+  /* #createTaskform h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  } */
+  
+  #create-task-form label {
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+  }
+  
+  #create-task-form input[type="text"],
+  #create-task-form textarea,
+  #create-task-form select {
+    width: 300px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  #create-task-form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  #create-task-form input[type="submit"]:hover {
+    background-color: #45a049;
+  }
