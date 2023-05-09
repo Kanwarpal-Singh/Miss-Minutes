@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./styles//index.css">
     <link rel="stylesheet" href="./styles/dashboard.css">
     <link rel="stylesheet" href="./styles/project.css">
+    <link rel="stylesheet" href="./styles/projectcreate.css">
 </head>
 
 <body>
@@ -121,52 +122,13 @@
 
             </div>
             <div id="projects-content">
-                <div id="project-page">
-                    <div id="project-bar">
-                        <div id="project_heading">Projects</div>
-                        <div id="create">Create Project</div>
-                    </div>
-                    <div id="projects-details">
-                        <div id="total_projects" class="project_cards">
-                            <p id="total_projects_head">Total Projects</p>
-                            <h2 id="total_projects_num">0</h2>
-                        </div>
-                        <div id="in_progress" class="project_cards">
-                            <p id="in_progress_head">Projects In-Progress</p>
-                            <h2 id="in_progress_num">0</h2>
-                        </div>
-                        <div id="completed" class="project_cards">
-                            <p id="completed_head">Projects Completed</p>
-                            <h2 id="completed_num">0</h2>
-                        </div>
-                        <div id="teams" class="project_cards">
-                            <p id="teams_head">Total Teams</p>
-                            <h2 id="teams_num">0</h2>
-                        </div>
-                        <div id="employees" class="project_cards">
-                            <p id="employees_head">Employees</p>
-                            <h2 id="employess_num">0</h2>
-                        </div>
-                        <div id="averagetasks" class="project_cards">
-                            <p id="averagetasks_head">Average Task/Project</p>
-                            <h2 id="averagetasks_num">0</h2>
-                        </div>
-                    </div>
-                    <div id="projects-info">
-                        <div id="project_heading">Projects Info</div>
-                        <div id="project-functions">
-                            <select name="filter" id="filter">
-                                <option value="filter">Filter by Status</option>
-                                <option value="completed">Completed Projects</option>
-                                <option value="in-progress">In Progress Projects</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div id="project-table">
-                        <table id="table">
-                        </table>
-                    </div>
-                </div>
+                <h2>Create a Project</h2>
+                <form method="post" action="/projects">
+                  <input type="text" id="name" name="name" placeholder="Enter Project Name"><br>
+                  <textarea id="description" name="description" placeholder="Enter Project Description"></textarea><br>
+            
+                  <button type="submit" id="">Create Project</button>
+                </form>
             </div>
             <div id="footer">
                 <section id="footer_section_1">
@@ -255,4 +217,5 @@
 </body>
 
 </html>
+<script src="./scripts/projectcreate.js"></script>
 <script src="./scripts/dashboard.js"></script>

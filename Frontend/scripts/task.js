@@ -31,7 +31,7 @@ let backbtn = document.getElementById("back-btn")
 
 backbtn.addEventListener("click",()=>{
     localStorage.removeItem("projectid")
-    window.location.href="./dashboard.html"
+    window.location.href="./project.html"
 })
 
 // back-btn add 

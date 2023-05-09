@@ -1,61 +1,53 @@
 #project-page{
     width: 100%;
     background-color: rgb(197, 150, 106);
-    height: 900px;
+    height: fit-content;
 }
 #project-bar{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap:75%;
+    display: flex;
+    justify-content: space-between;
     padding: 20px 0px 20px 0px;
     height:60px;
-    width: 100%;
+    width: 95%;
     align-items: center;
-    /* background-color: rgb(175, 157, 120); */
 }
 
 #create{
-    width: 150px;
-    padding:10px 40px;
+    width: 125px;
+    padding:5px 20px;
     background-color: white;
     color: rgb(221, 179, 106);
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    margin-right: 2%;
     text-align: center;
 }
 #project_heading{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 33px;
-    /* width: 100%; */
+    font-size: 25px;
+    /* width: 58%; */
     /* border: 1px solid green; */
-    margin-left: 4%;
+    margin-left: 5%;
 }
-#project-functions{
-    /* width: 95%; */
-    gap:3%;
-    /* border: 1px solid red; */
-    display: flex;
-}
+
 #sort{
-    width: 150px;
+    width: 125px;
     background-color: white;
     color: rgb(221, 179, 106);
-    height: 50px;
+    height: 40px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
 }
 #filter{
-    width: 150px;
+    width: 125px;
+    padding:10px 20px;
     background-color: white;
     color: rgb(221, 179, 106);
-    height: 50px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    margin-right: 2%;
+    text-align: center;
 }
 
 #projects-details {
@@ -65,6 +57,11 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
+
+#projects-details h2{
+    margin-top: 10px;
+    margin-left: 5px;
+}
   
   .project_cards {
     width: 97.5%;
@@ -74,14 +71,12 @@
   }
   
 #projects-info{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap:55%;
+    display: flex;
+    justify-content: space-between;
     padding: 20px 0px 20px 0px;
     height:60px;
-    width: 100%;
+    width: 95%;
     align-items: center;
-    /* background-color: rgb(175, 157, 120); */
 }
 #see-datails{
     width: 150px;
@@ -97,15 +92,27 @@
 }
 #project-table{
     margin-top: 3%;
-    background-color: bisque;
     padding: 10px;
 }
 table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 99%;
+    margin: auto;
+    background-color: bisque;
+    padding: 10px;
+    margin-left: 0%;
+}
+tr{
+    border: 1px solid red;
 }
 td {
     height: 50px;
     padding: 0 15px;
     border: 1px solid black;
+}
+.detailsbtn{
+    margin-left: 17%;
+    padding: 10px 25px;
+    background-color: rgb(221, 179, 106);
+    border: none;
+    border-radius: 5px;
 }

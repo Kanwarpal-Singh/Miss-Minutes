@@ -16,8 +16,8 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['Admin', 'Manager', 'Employee'],
-        default: 'Employee'
+        enum: ['admin', 'manager', 'employee'],
+        default: 'employee'
     },
     assignedTasks: [{
         type: mongoose.Schema.Types.ObjectId,

@@ -10,7 +10,7 @@
 
 #sidebar {
   width: 250px;
-  background-color: rgb(38, 44, 48);
+  background-color:  #b57532;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -59,10 +59,11 @@
 .card:hover {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   transform: translateY(-1px);
+  background-color: white;
+  color:#4e1d13
 }
 
 .card.active {
-  background-color: rgb(78, 168, 25);
   border-radius: 10px;
 }
 
@@ -75,7 +76,7 @@
 }
 
 .card a:hover {
-  color: #ffffff;
+  color:#4e1d13 ;
 }
 
 .card .icon {
@@ -94,6 +95,7 @@
 #bar {
   width: 100%;
   margin-left: 250px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 #mainbar {

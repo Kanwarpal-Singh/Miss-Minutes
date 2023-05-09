@@ -17,6 +17,15 @@ userRoute.get("/",async(req,res)=>{
         res.send(err.message)
     }
 })
+userRoute.get("/:id",async(req,res)=>{
+    const id = req.params.id;
+    try {
+        const user = await UserModel.findOne({_id:id})
+        res.status(200).send({"user":user.name})
+    } catch (err) {
+        res.send(err.message)
+    }
+})
 
 userRoute.get("/employee",async(req,res)=>{
     try {

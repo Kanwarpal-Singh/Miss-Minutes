@@ -1,6 +1,6 @@
 const form = document.querySelector("form");
 let emailInput = document.getElementById("email");
-let passwordInput = document.getElementById("pass");
+let passwordInput = document.getElementById("password");
 
 
 const user = JSON.parse(sessionStorage.getItem("user")) || "";
@@ -35,7 +35,7 @@ form.addEventListener("submit", (e) => {
             };
             sessionStorage.setItem("user", JSON.stringify(user));
             localStorage.setItem("token", data.accessToken);
-             window.location.href = "/frontend/dashboard.html";
+             window.location.href = "./dashboard.html";
         }else{
             alert(data.msg);
             emailInput.value = "";

@@ -73,53 +73,42 @@ function toggleDropdown1(dropdown1) {
 let token = localStorage.getItem("token") || ""
 console.log(token)
 
-const url ="http://localhost:8080/user/logout"
+
 
 const logout = document.getElementById("logout")
 
 logout.addEventListener("click",()=>{
-  fetch(`${url}`,{
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `${token}`
-    },
+  // fetch(`http://localhost:8080/user/logout`,{
+  //   method: "GET",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //     "Authorization": `${token}`
+  //   },
+  // })
+  // .then((res) => res.json())
+  // .then((data) => {
+    username = "";
+    userlogo.textContent = "";
+    sessionStorage.clear(); 
+    localStorage.clear();
+    window.location.href = "./index.html";
   })
-  .then((res) => res.json())
-      .then((data) => {
-        username = "";
-        userlogo.textContent = "";
-        sessionStorage.clear(); 
-        localStorage.clear();
-        window.location.href = "/Frontend/index.html";
-      })
-      .catch((err)=>{
-        console.log(err);
-      });
+  // .catch((err)=>{
+  //   console.log(err);
+  // });    
+// })
+
+const dashboard_page = document.getElementById("dashboard-page-btn")
+const project_page = document.getElementById("project-page-btn");
+
+dashboard_page.addEventListener("click",()=>{
+  window.location.href= "./dashboard.html"
+})
+project_page.addEventListener("click",()=>{
+  window.location.href= "./project.html"
 })
 
-window.addEventListener("load",()=>{
-  fetchdata()
-})
-
-
-
-async function fetchdata() {
-    try {
-      let res = await fetch(`http://localhost:8080/project/`, {
-        method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `${token}`
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-          console.log(data)
-      })
-      
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
+window.onload=()=>{
+  let token = localStorage.getItem("token");
+  
+}

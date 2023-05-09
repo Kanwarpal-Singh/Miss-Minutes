@@ -25,7 +25,11 @@ app.use("/user",userRoute)
 app.use("/project",auth,projectRoute)
 app.use("/task",auth,taskRoute)
 
+app.get("/checktoken",auth,(req,res)=>{
+   const token = req.body.token;
+   
 
+})
 
 app.listen(process.env.port,async () =>{
    try {

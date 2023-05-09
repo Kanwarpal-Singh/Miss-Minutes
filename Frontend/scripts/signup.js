@@ -1,7 +1,7 @@
 const form = document.querySelector("form");
 let emailInput = document.getElementById("email");
 let usernameInput = document.getElementById("name");
-let passwordInput = document.getElementById("pass");
+let passwordInput = document.getElementById("password");
 
 
 const url ="http://localhost:8080/user/signup"
@@ -26,7 +26,7 @@ form.addEventListener("submit", (e) => {
             usernameInput.value = "";
             emailInput.value = "";
             passwordInput.value = "";
-             window.location.href = "/Frontend/login.html";
+            window.location.href = "./login.html";
         }else{
             alert(data.msg);
             usernameInput.value = "";

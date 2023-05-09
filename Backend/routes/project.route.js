@@ -14,6 +14,7 @@ projectRoute.get("/",async(req,res)=>{
     }
 })
 
+
 projectRoute.post("/create", role(["manager","admin"]),async (req, res) => {
     try {
         const {name,description,status} = req.body;
