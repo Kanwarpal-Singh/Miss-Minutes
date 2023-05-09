@@ -32,7 +32,7 @@ let backbtn = document.getElementById("back-btn")
 backbtn.addEventListener("click",()=>{
     localStorage.removeItem("projectId")
     localStorage.removeItem("projecttitle")
-    window.location.href="./dashboard.html"
+    window.location.href="./project.html"
 })
 
 // back-btn add 
@@ -333,7 +333,7 @@ formEl.addEventListener("submit", async (event) => {
                 alert(data.message)
                 localStorage.removeItem("projectId")
                 localStorage.removeItem("projecttitle")
-                window.location.href="./dashboard.html"
+                window.location.href="./project.html"
             }
         }).catch((error) => {
             alert(error)
