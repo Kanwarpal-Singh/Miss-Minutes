@@ -109,12 +109,14 @@ task1delete.addEventListener("click", async () => {
         }
     }).then(res => res.json())
         .then(data => {
-            if (data.message === 'Task is deleted successfully') {
+            console.log("hii")
+            if (data.message === 'Task Deleted') {
                 alert(data.message)
                 localStorage.removeItem("taskId")
                 window.location.href = "./task.html"
             }
         }).catch((error) => {
+            console.log("nhi hua")
             alert(error)
             console.log(error)
         })

@@ -267,7 +267,7 @@ formEl.addEventListener("submit", async (event) => {
   
     // get project id from local storage
     const projectId = localStorage.getItem("projectId") || "";
-     
+     console.log(projectId)
     const requestBody = {
       title,
       description: desc,
@@ -277,7 +277,7 @@ formEl.addEventListener("submit", async (event) => {
       startTime: new Date().toISOString(), 
       projectId 
     };
-  
+  console.log(requestBody)
     const response = await fetch(`http://localhost:8080/task/create/${projectId}`, {
       method: "POST",
       headers: {
