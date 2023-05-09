@@ -23,7 +23,10 @@ const projectSchema = new mongoose.Schema({
     ref: 'User'
   }],
   timeTracking: {
-    startDate: Date,
+    startDate: {
+      type: Date,
+      default: Date.now
+    },
     endDate: Date,
     totalHours: Number
   }
@@ -31,6 +34,6 @@ const projectSchema = new mongoose.Schema({
   versionKey:false
 });
 
-const projectModel = mongoose.model("projects",projectSchema)
+const projectModel = mongoose.model("Project",projectSchema)
 
 module.exports = {projectModel}

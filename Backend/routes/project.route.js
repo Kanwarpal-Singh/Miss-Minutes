@@ -1,5 +1,6 @@
 const express = require("express");
 const { projectModel } = require("../models/project.model");
+const{UserModel} =require("../models/user.model")
 const { role } = require("../middlewares/role.middleware");
 
 const projectRoute = express.Router()
@@ -15,7 +16,7 @@ projectRoute.get("/",async(req,res)=>{
 })
 
 
-projectRoute.post("/create", role(["manager","admin"]),async (req, res) => {
+projectRoute.post("/create", role(["Admin", "Manager"]),async (req, res) => {
     try {
         const {name,description,status} = req.body;
         const projectexist = await projectModel.findOne({name})
@@ -94,7 +95,7 @@ projectRoute.get("/AllProjectsByManager/:id",async(req,res)=>{
 // Update project by manager(who created),admin
 
 
-projectRoute.delete("/delete/:projectid",role("admin"), async(req,res)=>{
+projectRoute.delete("/delete/:projectid",role("Admin"), async(req,res)=>{
     const projectid = req.params.projectid;
     const projectexists = await projectModel.findOne({_id: projectid});
     
