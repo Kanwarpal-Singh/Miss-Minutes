@@ -192,9 +192,9 @@ taskRoute.delete("/delete/:id", role(["Admin", "Manager"]), async (req, res) => 
   await user.save();
 
   const deletetask = await TaskModel.findByIdAndDelete({_id:taskId})
-  res.status(200).send({ message: 'Task is deleted successfully' });
+  res.status(200).send({"message":"Task Deleted"})
   } catch (error) {
-  res.status(400).send({ message: 'Server error', error });
+  res.status(400).send({"message":error.message});
   }
   });
 
@@ -228,6 +228,34 @@ taskRoute.get('/:projectId/users', async (req, res) => {
     return res.status(500).send('Server error');
   }
 });
+
+
+// delete all the project
+taskRoute.delete('/:id',role(["Admin", "Manager"]), async (req, res) => {
+  try {
+    const projectId = req.params.id;
+
+    // Delete all associated tasks
+    const deletedTasks = await TaskModel.deleteMany({ projectId: projectId });
+
+    // Remove project from users' assignedProjects array
+    const updatedUsers = await UserModel.updateMany(
+      { assignedProjects: projectId },
+      { $pull: { assignedProjects: projectId } }
+    );
+
+    // Delete project itself
+    const deletedProject = await projectModel.findByIdAndDelete(projectId);
+
+    res.status(200).send({ "message": 'Project deleted successfully.'});
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({"message":error.message});
+  }
+});
+
+
+
 
 module.exports = { taskRoute }
 

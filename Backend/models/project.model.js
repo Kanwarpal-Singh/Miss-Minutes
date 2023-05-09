@@ -16,8 +16,7 @@ const projectSchema = new mongoose.Schema({
   },
   tasks: [{
     type: mongoose.Schema.Types.ObjectId,
-    type: String,
-    // ref: 'Task'
+    ref: 'Task'
   }],
   createdBy: [{
     type: mongoose.Schema.Types.ObjectId,
