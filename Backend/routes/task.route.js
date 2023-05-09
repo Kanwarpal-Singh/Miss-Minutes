@@ -172,15 +172,31 @@ taskRoute.patch("/update/:id", role(["Admin", "Manager"]), async (req, res) => {
   }
 })
 taskRoute.delete("/delete/:id", role(["Admin", "Manager"]), async (req, res) => {
-
   try {
-    let id = req.params.id
-    const task = await TaskModel.findByIdAndDelete({ _id: id })
-    res.status(200).send({ "message": "Tasks is deleted successfully" })
-  } catch (error) {
-    res.status(400).send({ message: 'Server error', error });
+  const taskId = req.params.id;
+  const task = await TaskModel.findOne({ _id: taskId });
+  console.log(task.projectId)
+  if (!task) {
+  return res.status(404).send({ message: 'Task not found' });
   }
-})
+
+  // Remove the task from the previous assignee's assignedTasks array
+  const project = await projectModel.findOne({ _id: task.projectId});
+  if(!project)  return res.status(404).send({ message: 'Project not found' });
+  project.tasks.pull(task._id);
+  await project.save();
+
+  const user = await UserModel.findOne({ _id: task.assignedTo });
+  if(!user)  return res.status(404).send({ message: 'user not found' });
+  user.assignedTasks.pull(task._id);
+  await user.save();
+
+  const deletetask = await TaskModel.findByIdAndDelete({_id:taskId})
+  res.status(200).send({ message: 'Task is deleted successfully' });
+  } catch (error) {
+  res.status(400).send({ message: 'Server error', error });
+  }
+  });
 
 
 //  total employee
