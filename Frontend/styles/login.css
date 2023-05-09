@@ -55,6 +55,7 @@ form,
   gap: 5px;
   min-height: 40px;
   margin-top: 2%;
+  cursor: pointer;
 }
 .logo img {
   max-width: 20%;
