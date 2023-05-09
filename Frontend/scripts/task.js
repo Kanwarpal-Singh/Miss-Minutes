@@ -1,4 +1,4 @@
-let projectid = localStorage.getItem("projectid") || "6458e18073271c5354342b32"
+let projectid = localStorage.getItem("projectId") || " "
 
 
 
@@ -30,16 +30,12 @@ let projecttitlename = localStorage.getItem("projecttitle") || "";
 let backbtn = document.getElementById("back-btn")
 
 backbtn.addEventListener("click",()=>{
-    localStorage.removeItem("projectid")
-    window.location.href="./project.html"
+    localStorage.removeItem("projectId")
+    localStorage.removeItem("projecttitle")
+    window.location.href="./dashboard.html"
 })
 
 // back-btn add 
-
-if (user1.role === "Employee") {
-    task.style.display = "none"
-}
-
 
 
 
@@ -98,6 +94,7 @@ async function fetchdata1() {
         })
             .then((res) => res.json())
             .then((data) => {
+                console.log(data)
                 displayData(data.data)
             })
 
@@ -127,21 +124,69 @@ function displayData(data) {
         const formattedDate = date.toLocaleString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
         CreatedOn.innerText = formattedDate;
 
-        let assignedToUser = await fetchUserById(element.assignedTo);
-        Assignto.innerText = assignedToUser ? assignedToUser.name : "Unknown";
+        await fetch(`http://localhost:8080/user/${element.createdBy}`, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `${token}`,
+            },
+          }).then(res => res.json())
+        .then(data => {
+            Createdby.innerText=data.user
+        }).catch((error) => {
+            console.log(error)
+        })
 
-        let createdByUser = await fetchUserById(element.createdBy);
-        Createdby.innerText = createdByUser ? createdByUser.name : "Unknown";
+        await fetch(`http://localhost:8080/user/${element.assignedTo}`, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `${token}`,
+            },
+          }).then(res => res.json())
+        .then(data => {
+            Assignto.innerText=data.user
+        }).catch((error) => {
+            console.log(error)
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         let button = document.createElement("button");
         button.innerText = "See Details";
 
+
+
+
+
+
+
+
         button.addEventListener("click", function() {
             const taskId = this.parentNode.parentNode.getAttribute("data-id");
-            alert(taskId)
+          
             localStorage.setItem("taskId", taskId);
-            window.location.href = "./task1.html";
+            window.location.href = "./taskdetails.html";
         });
+
+
+
+
+
+
 
         Seedetails.appendChild(button);
         tr.append(task, CreatedOn, Assignto, Createdby, Seedetails);
@@ -151,23 +196,7 @@ function displayData(data) {
 
 
 
-async function fetchUserById(userId) {
-  try {
-    const res = await fetch(`http://localhost:8080/user/${userId}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `${token}`,
-      },
-    });
 
-    const data = await res.json();
-    return data.user;
-  } catch (error) {
-    console.log(error);
-    return null;
-  }
-}
 
 // employee 
 
@@ -200,21 +229,21 @@ async function fetchdata2() {
 
 async function toggleDropdown3(createTaskform) {
     
-    const response = await fetch('http://localhost:8080/user/employee', {
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `${token}`
-        }
-    });
-    const employees = await response.json();
+    // const response = await fetch('http://localhost:8080/user/employee', {
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //         'Authorization': `${token}`
+    //     }
+    // });
+    // const employees = await response.clone().json(); // clone the response before reading it
    
-    assignBySelect.innerHTML = '';
-    employees.forEach((employee) => {
-        const option = document.createElement('option');
-        option.value = employee._id;
-        option.text = employee.name;
-        assignBySelect.appendChild(option);
-    });
+    // assignBySelect.innerHTML = '';
+    // employees.forEach((employee) => {
+    //     const option = document.createElement('option');
+    //     option.value = employee._id;
+    //     option.text = employee.name;
+    //     assignBySelect.appendChild(option);
+    // });
 
     // Show or hide the create task form
     if (createTaskform.style.display === 'none') {
@@ -227,6 +256,7 @@ async function toggleDropdown3(createTaskform) {
 
 
 
+
 formEl.addEventListener("submit", async (event) => {
     event.preventDefault();
   
@@ -236,7 +266,7 @@ formEl.addEventListener("submit", async (event) => {
     const statusVal = statusinput.value;
   
     // get project id from local storage
-    const projectId = localStorage.getItem("projectid") || "6458e18073271c5354342b32";
+    const projectId = localStorage.getItem("projectId") || "";
      
     const requestBody = {
       title,
@@ -265,7 +295,9 @@ formEl.addEventListener("submit", async (event) => {
         description.value="";
         let createTaskform = document.getElementById("createTaskform")
         createTaskform.style.display = 'none'
-        fetchdata1()
+        fetchdata()
+    fetchdata1()
+    fetchdata2()
       } else {
         // task creation failed
         const errorData = await response.json();
@@ -276,4 +308,37 @@ formEl.addEventListener("submit", async (event) => {
       }
     
   });
+
+
+  let projectdelete = document.querySelector(".Edit")
+
+
+  if (user1.role === "Employee") {
+    task.style.display = "none"
+    projectdelete.style.display="none"
+}
+
+  projectdelete .addEventListener("click", () => {
+
+    fetch(`http://localhost:8080/task/${projectid}`, {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `${token}`
+        }
+    }).then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if (data.message === 'Project deleted successfully.') {
+                alert(data.message)
+                localStorage.removeItem("projectId")
+                localStorage.removeItem("projecttitle")
+                window.location.href="./dashboard.html"
+            }
+        }).catch((error) => {
+            alert(error)
+            console.log(error)
+        })
+
+})
   

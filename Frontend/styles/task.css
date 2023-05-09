@@ -4,26 +4,26 @@
     box-sizing: border-box;
 }
 
-#task{
+#task,#task-details{
     background-color: rgb(197, 150, 106);
     
 }
 
-#project-title {
+#project-title,#task-title {
     margin-left: 40px;
     display: flex;
     align-items: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#title-1 {
+#title-1,#title-2 {
     font-size: 26px;
     font-weight: 400;
     line-height: 31px;
     margin-top: 25px;
 }
 
-#back-btn {
+#back-btn ,#back-btn2 {
     margin-top: 10px;
     margin-left: 40px;
     font-size: 16px;
@@ -33,12 +33,12 @@
     cursor: pointer;
 }
 
-#back-btn:hover {
+#back-btn:hover #back-btn2:hover{
     text-decoration: underline;
 }
 
 
-#project-title-right {
+#project-title-right ,#task-title-right{
     display: flex;
     align-items: center;
     margin-left: auto;
@@ -47,7 +47,7 @@
 }
 
 .create-task,
-.Edit {
+.Edit ,.create-Edit,.Edit1{
     /* border: 1px solid #4ea819; */
     background-color: white;
     text-align: center;
@@ -67,7 +67,7 @@
 }
 
 
-#details {
+#details ,#taskdetails {
     /* border: 5px solid red; */
     display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -77,7 +77,7 @@
     padding: 15px;
 }
 
-.details-card{
+.details-card,.taskdetails-card{
     height: 140px;
     background-color: bisque;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -92,7 +92,7 @@
 }
 
 
-#details-date{
+#details-date,#taskdetails-date{
     text-align: center;
     font-size: 26px;
     font-weight: 400;
@@ -100,7 +100,7 @@
     margin-top: 25px;
 }
 
-#details-currency,#details-status{
+#details-currency,#details-status,#taskdetails-status{
     text-align: center;
     font-size: 42px;
     font-weight: 400;
@@ -109,7 +109,7 @@
     color: #28a745;
 }
 
-#details-total-employee,#details-total-task{
+#details-total-employee,#details-total-task,#taskdetails-createdby,#taskdetails-assignto,#taskdetails-endtime,#taskdetails-projectname,#taskdetails-time,#details-total-time,#details-total-hour{
     text-align: center;
     font-size: 42px;
     font-weight: 400;

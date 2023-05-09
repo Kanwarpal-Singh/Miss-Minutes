@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>task</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="./styles//index.css">
     <link rel="stylesheet" href="./styles/dashboard.css">
     <link rel="stylesheet" href="./styles/task.css">
 </head>
@@ -16,13 +16,13 @@
     <div id="wrapprer">
         <div id="sidebar" class="sidebar-collapsed">
             <div class="logo">
-                <img src="./images/marvel-miss-minutes-logo.png" alt="logo">
+                <img src="/Frontend/images/marvel-miss-minutes-logo.png" alt="logo">
                 <h1 class="title">Miss-Minutes</h1>
             </div>
 
             <div id="cards">
                 <ul>
-                    <li class="card active" id="dashboard-page-btn">
+                    <li class="card active">
                         <a href="#">
                             <div class="icon">
                                 <i class="fa fa-tachometer"></i>
@@ -38,7 +38,7 @@
                             <span class="link">My Desk Time</span>
                         </a>
                     </li>
-                    <li class="card" id="project-page-btn">
+                    <li class="card">
                         <a href="#">
                             <div class="icon">
                                 <i class="fa fa-tasks"></i>
@@ -127,7 +127,7 @@
                      <h4 id="title-1"></h4>
                      <div id="project-title-right">
                          <div class="create-task" onclick="toggleDropdown3(document.getElementById('createTaskform'))"> <span class="plus">+</span>New Task</div>
-                         <div class="Edit">Edit Task</div>
+                         <div class="Edit">Delete Project</div>
                      </div>
                  </div>
                  
@@ -189,16 +189,19 @@
                          <h5 class="heading">
                              HOUR RATE
                          </h5>
+                         <p id="details-total-hour">$10</p>
                      </div>
                      <div class="details-card">
                          <h5 class="heading">
                              ESTIMATE TIME
                          </h5>
+                         <p id="details-total-time">--</p>
                      </div>
                      <div class="details-card">
                          <h5 class="heading">
                              ESTIMATE COSTS
                          </h5>
+                         <p id="details-total-hour">$100</p>
                      </div>
                      <div class="details-card">
                          <h5 class="heading">
@@ -242,6 +245,91 @@
                           <!-- Update the rows here using jsvascript -->
                         </tbody>
                       </table>
+                </div>
+
+
+
+                <div id="footer">
+                    <section id="footer_section_1">
+                        <div>
+                          <p>Company</p>
+                          <a href="#">Home</a>
+                          <a href="#">Terms</a>
+                          <a href="#">Privacy</a>
+                          <a href="#">Cookies</a>
+                          <a href="#">Affiliate terms</a>
+                          <a href="#">Download app</a>
+                          <a href="#">Pricing</a>
+                          <a href="#">Affiliate</a>
+                          <a href="#">Press</a>
+                          <a href="#">DeskTime in your language</a>
+                        </div>
+                        <div>
+                          <p>Learn more</p>
+                          <a href="#">All resources</a>
+                          <a href="#">Employee monitoring guide</a>
+                          <a href="#">Online employee time clock</a>
+                          <a href="#">Best time tracking apps</a>
+                          <a href="#">DeskTime for business</a>
+                          <a href="#">DeskTime for freelancers</a>
+                          <a href="#">FAQ</a>
+                          <a href="#">Case studies</a>
+                          <a href="#">Webinars</a>
+                          <a href="#">Blog</a>
+                        </div>
+                        <div>
+                          <p>Learn more</p>
+                          <a href="#">All integrations</a>
+                          <a href="#">Trello</a>
+                          <a href="#">Basecamp</a>
+                          <a href="#">Jira</a>
+                          <a href="#">Asana</a>
+                          <a href="#">Outlook Calendar</a>
+                          <a href="#">Google Calendar</a>
+                        </div>
+                        <div>
+                          <p>Features</p>
+                          <a href="#">All features</a>
+                          <a href="#">Automatic time tracking</a>
+                          <a href="#">URL & App tracking</a>
+                          <a href="#">Screenshots</a>
+                          <a href="#">Project time tracking</a>
+                          <a href="#">Shift schedule</a>
+                          <a href="#">Offline time tracking</a>
+                          <a href="#">Absence calendar</a>
+                          <a href="#">Mobile app</a>
+                          <a href="#">Feature request</a>
+                        </div>
+                        <div>
+                          <p>Help center</p>
+                          <a href="#">Contact us</a>
+                          <a href="#">Schedule a call</a>
+                          <a href="#">Send us an e-mail</a>
+                          <a href="#">Request In-person training</a>
+                          <a href="#">Open chat</a>
+                          <p>Phone support</p>
+                          <a href="#">+1 (315) 6365354</a>
+                          <a href="#">MON-FRI 9:00-22:00 EET</a>
+                        </div>
+                    </section>
+                    <section id="footer_section_2">
+                    <div class="footer_logo">
+                        <img src="./images/miss-minutes-shy.png" alt="" />
+                        <span>Miss-Minutes</span>
+                    </div>
+                    <div>
+                        <a href="" class="fa-brands fa-square-facebook"></a>
+                        <a href="" class="fa-brands fa-square-twitter"></a>
+                        <a href="" class="fa-brands fa-square-youtube"></a>
+                        <a href="" class="fa-brands fa-linkedin"></a>
+                        <a href="" class="fa-brands fa-skype"></a>
+                        <a href="" class="fa-brands fa-whatsapp"></a>
+                        </div>
+                    </section>
+                    <section id="footer_section_3">
+                    <span>© 2011 - 2023 DeskTime</span>
+                    <span>DRAUGIEM GROUP</span>
+                </section>
                 </div>
              </div>
         </div>
