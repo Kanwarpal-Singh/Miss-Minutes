@@ -9,9 +9,9 @@ const userRoute = express.Router()
 
 
 
-userRoute.get("/",async(req,res)=>{
+userRoute.get("/employee",async(req,res)=>{
     try {
-        const users = await UserModel.find()
+        const users = await UserModel.find({role:"Employee"})
         res.send(users)
     } catch (err) {
         res.send(err.message)
@@ -27,10 +27,10 @@ userRoute.get("/:id",async(req,res)=>{
     }
 })
 
-userRoute.get("/employee",async(req,res)=>{
+userRoute.get("/",async(req,res)=>{
     try {
-        const users = await UserModel.find({role:"Employee"})
-        console.log(users)
+        const users = await UserModel.find()
+        
         res.send(users)
     } catch (err) {
         res.send(err.message)

@@ -229,21 +229,21 @@ async function fetchdata2() {
 
 async function toggleDropdown3(createTaskform) {
     
-    // const response = await fetch('http://localhost:8080/user/employee', {
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //         'Authorization': `${token}`
-    //     }
-    // });
-    // const employees = await response.clone().json(); // clone the response before reading it
+    const response = await fetch('http://localhost:8080/user/employee', {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `${token}`
+        }
+    });
+    const employees = await response.json();
    
-    // assignBySelect.innerHTML = '';
-    // employees.forEach((employee) => {
-    //     const option = document.createElement('option');
-    //     option.value = employee._id;
-    //     option.text = employee.name;
-    //     assignBySelect.appendChild(option);
-    // });
+    assignBySelect.innerHTML = '';
+    employees.forEach((employee) => {
+        const option = document.createElement('option');
+        option.value = employee._id;
+        option.text = employee.name;
+        assignBySelect.appendChild(option);
+    });
 
     // Show or hide the create task form
     if (createTaskform.style.display === 'none') {
