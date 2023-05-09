@@ -20,7 +20,8 @@ const taskSchema = new mongoose.Schema({
         required: true
       },
       startTime: {
-        type: Date
+        type: Date,
+        default: Date.now
       },
       endTime: {
         type: Date
@@ -29,7 +30,11 @@ const taskSchema = new mongoose.Schema({
         type: String,
         enum: ['Not Started', 'In Progress', 'Completed'],
         default: 'Not Started'
-      }
+      },
+      projectId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Project'
+    }
 });
 
 const TaskModel = mongoose.model('Task', taskSchema);

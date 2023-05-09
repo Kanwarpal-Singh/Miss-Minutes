@@ -175,7 +175,7 @@ taskRoute.delete("/delete/:id", role(["Admin", "Manager"]), async (req, res) => 
   try {
   const taskId = req.params.id;
   const task = await TaskModel.findOne({ _id: taskId });
-  console.log(task.projectId)
+  console.log(task)
   if (!task) {
   return res.status(404).send({ message: 'Task not found' });
   }
