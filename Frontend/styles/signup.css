@@ -1,108 +1,261 @@
-body{
+/* CSS HEX */
+* {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+:root {
+  --sea-buckthorn: #fb922b;
+  --paco: #4e1d13;
+  --aths-special: #f0e7d7;
+  --spicy-mix: #7c5040;
+  --desert: #b1581b;
+  --golden-tainoi: #fccb5b;
+  --copper-canyon: #8c3c14;
+  --pharlap: #a18174;
+  --copper: #b57532;
+}
+body {
+  margin: 0px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+main {
+  display: flex;
+  gap: 4%;
+  min-height: 100vh;
+  background-image: url(../images/miss-minutes-shy.png);
+  background-repeat: no-repeat;
+  background-position: 75% 22%;
+  background-color: #f5f5f6;
+}
+#Register_form {
+  height: 130vh;
+  width: 40%;
+  padding: 10px;
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.logo,
+.form_heading,
+form,
+.Oauth {
+  margin-left: 30%;
+  margin-right: 10%;
+}
+.logo,
+.form_heading div {
+  color: #333c43;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 5px;
+  min-height: 40px;
+  margin-top: 2%;
+  cursor: pointer;
+}
+.logo img {
+  max-width: 20%;
+}
+.logo span {
+  font-size: 170%;
+  font-weight: bolder;
+}
+
+.form_heading div {
+  font-size: 220%;
+  font-weight: bold;
+  margin-top: 5%;
+}
+.form_heading p {
+  color: #475056;
+  margin-bottom: 5%;
+}
+.form_heading a {
+  color: #475056;
+  font-weight: bold;
+}
+.form_heading a:hover {
+  color: black;
+}
+
+form {
+  padding-top: 2%;
+  padding-bottom: 4%;
+  border-bottom: 1px solid rgba(149, 157, 165, 0.2);
+}
+form label {
+  color: #475056;
+}
+
+form input[type="name"],
+form input[type="email"],
+form input[type="password"] {
+  min-height: 40px;
+  width: 90%;
+  text-indent: 10px;
+  font-size: 100%;
+  margin-top: 2%;
+  margin-bottom: 4%;
+}
+form input[type="submit"] {
+  min-height: 40px;
+  width: 92%;
+  border: 1px solid var(--paco);
+  border-radius: 4px;
+  font-size: 100%;
+  color: white;
+  background-color: var(--paco);
+  margin-top: 3%;
+  margin-bottom: 5%;
+  cursor: pointer;
+}
+form input[type="submit"]:hover {
+  color: var(--aths-special);
+  background: var(--spicy-mix);
+}
+form a {
+  color: #333c43;
+}
+
+form > p {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+#newsletter {
+  display: flex;
+  gap: 5%;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  min-width: 23px;
+  min-height: 23px;
+  border: 2px solid var(--spicy-mix);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: white;
+  position: relative;
+}
+
+input[type="checkbox"]::before {
+  content: "✔";
+  display: inline-block;
+  position: absolute;
+  left: 3px;
+  top: 1px;
+  color: var(--spicy-mix);
+  font-size: 16px;
+  line-height: 1;
+  transition: opacity 0.2s;
+  opacity: 0;
+}
+
+input[type="checkbox"]:checked::before {
+  opacity: 1;
+}
+
+.Oauth {
+  margin-top: 5%;
+}
+.Oauth > div:nth-child(1) {
+  font-weight: bolder;
+  margin-bottom: 4%;
+}
+.Oauth > div:nth-child(2) {
+  display: flex;
+  gap: 5%;
+}
+.Oauth i {
+  font-size: 200%;
+  color: white;
+  background: var(--paco);
+  padding: 6px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.Oauth i:hover {
+  animation: jump 0.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes jump {
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+main > img {
+  align-self: center;
+  text-align: center;
+  height: 100%;
+  width: 50%;
+}
+
+@media (max-width: 1185px) {
+  .logo,
+  .form_heading,
+  form,
+  .Oauth {
     margin: 0;
-    background-image: url("https://c4.wallpaperflare.com/wallpaper/954/5/66/code-programmers-programming-doom-game-wallpaper-preview.jpg");
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
-#main{
     margin: auto;
-    margin-top:50px;
-    width: 50%;
-    height:50%;
-    background: linear-gradient(to bottom,#0cc0df, #0cc0df, #ffffff);
-    border-radius: 20px;
-    text-align: center;
-    padding: 20px;
-}
+  }
 
-#main img{
-    width: 10%;
-    /* border-radius: 5px; */
-}
-#form{
-    border:2px solid transparent;
-    margin-top: 4%;
+  #Register_form {
     display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     width: 100%;
-    justify-content: space-between;
-}
-#left{
-    width:45% ;
-    
-}
-#left button{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    display: flex;
-    justify-content: space-around;
-    border-radius: 20px;
-    align-items: center;
-    color: #242424;
-    font-family: sans-serif;
-    font-weight: 500;
-    border:1px solid rgb(255, 255, 255);
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+  main > img {
+    display: none;
+  }
+  .logo {
+    gap: 10px;
+    min-height: 5px;
+    margin-top: 1%;
+  }
+  .logo img {
+    max-width: 15%;
+  }
+  .form_heading div {
+    margin-top: 5px;
+  }
+  .form_heading p {
+    margin-bottom: 0;
+  }
+
+  form {
+    margin-top: 10px;
+    padding-top: -10px;
+    padding-bottom: 4%;
+    width: 90%;
+    text-align: center;
+  }
+  form {
+    text-align: left !important;
+  }
+  .Oauth {
+    margin-top: 0;
+    text-align: center;
+  }
+  #labell {
+    text-align: left;
+  }
 }
 
-#left button:hover{
-    cursor: pointer;
-}
-
-#left button img{
-    width: 10%;
-}
-
-#right input{
-    margin-bottom: 20px;
-    padding: 10px;
-    width: 70%;
-    border-radius: 10px;
-    font-family: sans-serif;
-    border:1px solid rgb(255, 255, 255);
-
-}
-#submit{
-    border-radius: 10px;
-    font-weight: 500;
-}
-
-#submit:hover{
-    color:white;
-    background-color:#0cc0df;
-    cursor: pointer;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-}
-
-#line{
-    margin-left:10px;
-    width: 1.5px;
-    height: auto;
-    background-color: #7e7979;
-}
-
- /* @media all and (min-width:1000px) and (max-width:1300px){
-    #main{
-        width: 50%;
-        background-color: white;
-        margin: auto;
-        margin-top: 100px;
-        border-radius: 20px;
-        text-align: center;
-        padding: 20px;
-    }
-} */
-
-@media all and (min-width:300px) and (max-width:500px){
-    #main{
-        margin: auto;
-        margin-top:10px;
-        width: 70%;
-        height:70%;
-        background: linear-gradient(to bottom,#0cc0df, #0cc0df, #ffffff);
-        border-radius: 20px;
-        text-align: center;
-        /* padding: 20px; */
-    }
+@media only screen and (min-width: 935px) and (max-width: 1184px) {
+  .form_heading div {
+    margin-top: 40px;
+  }
 }

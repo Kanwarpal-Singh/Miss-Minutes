@@ -1,46 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
-  
-    <link rel="stylesheet" href="/Frontend/styles/signup.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-</head>
-
-<body>
-
-    <div id="main">
-        <img src="/Frontend/images/marvel-miss-minutes-logo.png" alt="logo">
-        <div id="form">
-             <div id="left">
-                <a href="https://long-erin-hummingbird-garb.cyclic.app/auth/google"><button><img src="https://img.icons8.com/color/96/null/google-logo.png"/>Continue
-                    with Google</button></a>                
-
-                
-                <br>
-                <a style="text-decoration: none;" href="https://github.com/login/oauth/authorize?client_id=284311611283da0350f9&scope=repo"><button id="github"><img src="https://img.icons8.com/color/96/null/github-2.png"/>Continue with
-                    GitHub</button></a>
-            </div> 
-            <div id="line"></div>
-            <div id="right">
-                <form>
-                    <input id="email" type="email" placeholder="# Work Email" />
-                    <br>
-                    <input id="name" type="text" placeholder="# Full Name" />
-                    <br>
-                    <input id="pass" type="password" placeholder="# Password" />
-                    <br>
-                    <p>By signing up you agree to the Terms of Service.</p>
-                    <input id="submit" type="submit" value="# Sign Up" />
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | Miss-Minutes</title>
+    <link
+      rel="icon"
+      href="./images/miss-minutes-fingure.png"
+      type="image/icon type"
+    />
+    <link rel="stylesheet" href="./styles/signup.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main>
+      <div id="Register_form">
+        <div
+          class="logo"
+          id="sec_4_free"
+          onclick="window.location.href='./index.html'"
+        >
+          <img src="/Frontend/images/marvel-miss-minutes-logo.png" alt="logo" />
+          <span>Miss-Minutes</span>
         </div>
-    </div>
-</body>
 
+        <div class="form_heading">
+          <div>Sign up and start tracking</div>
+          <p>Have an account? <a href="./login.html">Log in</a></p>
+        </div>
+
+        <form>
+          <label id="labell" for="email">First and last name</label><br />
+          <input
+            id="name"
+            type="name"
+            placeholder="Type in your first and last name"
+          /><br />
+
+          <label id="labell" for="email">Email</label><br />
+          <input
+            id="email"
+            type="email"
+            placeholder="Type in your email address"
+          /><br />
+
+          <label id="labell" for="">Password</label><br />
+          <input
+            id="password"
+            type="password"
+            placeholder="Type in your Password"
+          /><br />
+          <input id="submit" type="submit" value="SIGN UP FOR FREE" /><br />
+
+          <div id="newsletter">
+            <input type="checkbox" />
+            <p>
+              I would like to receive discount offers, news, feature updates,
+              and other marketing communication from Miss-Minutes.
+            </p>
+          </div>
+
+          <p>
+            By signing up, you agree to our <a href="">terms</a> and
+            <a href="">privacy policy.</a>
+          </p>
+        </form>
+
+        <div class="Oauth">
+          <div>Or connect with</div>
+          <div>
+            <a href="https://chat.openai.com/">
+              <i class="fa-brands fa-square-facebook"></i>
+            </a>
+            <a href=""> <i class="fa-brands fa-square-twitter"></i></a>
+            <a href=""> <i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://long-erin-hummingbird-garb.cyclic.app/auth/google">
+              <i class="fa-brands fa-google"></i
+            ></a>
+            <a
+              href="https://github.com/login/oauth/authorize?client_id=284311611283da0350f9&scope=repo"
+            >
+              <i class="fa-brands fa-github"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <img
+        src="https://desktime.com/static/web/_common/laptop-transparent.png?v1"
+        alt="thanos level js in loading"
+      />
+    </main>
+  </body>
 </html>
 <script src="/Frontend/scripts/signup.js"></script>
