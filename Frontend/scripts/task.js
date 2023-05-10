@@ -116,8 +116,10 @@ function displayData(data) {
         let CreatedOn = document.createElement("td");
         let Assignto = document.createElement("td");
         let Createdby = document.createElement("td");
-        let Seedetails = document.createElement("td");
-
+        let button = document.createElement("button");
+        let Seedetails = document.createElement("td")
+        button.innerText = "See Details";
+        button.className = "detailsbtn"
         task.innerText = element.title;
 
         const date = new Date(element.startTime);
@@ -159,35 +161,12 @@ function displayData(data) {
 
 
 
-
-
-
-
-
-
-        let button = document.createElement("button");
-        button.innerText = "See Details";
-
-
-
-
-
-
-
-
-        button.addEventListener("click", function() {
+button.addEventListener("click", function() {
             const taskId = this.parentNode.parentNode.getAttribute("data-id");
           
             localStorage.setItem("taskId", taskId);
             window.location.href = "./taskdetails.html";
         });
-
-
-
-
-
-
-
         Seedetails.appendChild(button);
         tr.append(task, CreatedOn, Assignto, Createdby, Seedetails);
         tbodyEl.append(tr);
@@ -329,6 +308,7 @@ formEl.addEventListener("submit", async (event) => {
     }).then(res => res.json())
         .then(data => {
             console.log(data)
+            alert("Project will be deleted")
             if (data.message === 'Project deleted successfully.') {
                 alert(data.message)
                 localStorage.removeItem("projectId")
