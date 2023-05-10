@@ -100,12 +100,16 @@ logout.addEventListener("click",()=>{
 
 const dashboard_page = document.getElementById("dashboard-page-btn")
 const project_page = document.getElementById("project-page-btn");
+const project_chat_page = document.getElementById("project-chat-btn")
 
 dashboard_page.addEventListener("click",()=>{
   window.location.href= "./dashboard.html"
 })
 project_page.addEventListener("click",()=>{
   window.location.href= "./project.html"
+})
+project_chat_page.addEventListener("click",()=>{
+  window.location.href= "./chat.html"
 })
 
 window.onload=()=>{

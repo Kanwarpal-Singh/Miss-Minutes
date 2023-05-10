@@ -52,6 +52,22 @@ async function fetchdata() {
         title2.innerText = data.task.title
 
         const startDate = new Date(data.task.startTime);
+        const currentDate = new Date()
+        const endDate = new Date(data.task.endTime)
+        var totalDays = 0;
+        var totalTime = 0;
+        
+
+        
+        if(data.task.endTime){
+            totalDays = currentDate.getTime()-endDate.getTime();
+            totalTime = Math.floor(totalDays / (1000 * 60 * 60));
+            taskdetailendtime.innerText = endDate;
+        }else{
+            totalDays = currentDate.getTime()-startDate.getTime();
+            totalTime = Math.floor(totalDays / (1000 * 60 * 60));
+        }
+
         const formattedDate = startDate.toLocaleDateString("en-US", {
             month: "short",
             day: "2-digit",
@@ -60,7 +76,7 @@ async function fetchdata() {
 
         taskcreateddate.innerText = formattedDate;
         taskdetailsstatus.innerText = data.task.status;
-
+        taskdetailtotaltime.innerText = totalTime+ "Hrs";
         
 
         await fetch(`http://localhost:8080/user/${data.task.createdBy}`, {
@@ -109,14 +125,14 @@ task1delete.addEventListener("click", async () => {
         }
     }).then(res => res.json())
         .then(data => {
-            console.log("hii")
+            console.log("Task Will be Deleted")
             if (data.message === 'Task Deleted') {
                 alert(data.message)
                 localStorage.removeItem("taskId")
                 window.location.href = "./task.html"
             }
         }).catch((error) => {
-            console.log("nhi hua")
+            console.log("couldn't delete the task")
             alert(error)
             console.log(error)
         })

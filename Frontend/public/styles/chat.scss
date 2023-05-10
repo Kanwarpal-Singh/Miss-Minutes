@@ -1,0 +1,204 @@
+
+$sea-buckthorn: #fb922b;
+$paco: #4e1d13;
+$aths-special: #f0e7d7;
+$spicy-mix: #7c5040;
+$desert: #b1581b;
+$golden-tainoi: #fccb5b;
+$copper-canyon: #8c3c14;
+$pharlap: #a18174;
+$copper: #b57532;
+
+@mixin flexing($flexd,$jc,$aitems){
+  display: flex;
+  flex-direction: $flexd;
+  align-items: $aitems;
+  justify-content: $jc;
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+  ::-webkit-scrollbar{
+    display: none;
+  }
+}
+
+
+main{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width: 80%;
+  overflow: hidden;
+  border-radius: 12px;
+  .navbar{
+    background-color:$desert;
+    color: white;
+    padding: 10px 22px;
+    @include flexing(row,space-between,center );
+
+    .logo{
+      @include flexing(row,flex-start ,center );
+      h1{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 32px;
+        margin-left:12px ;
+  
+      }
+    }
+
+
+   button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    display: none;
+   }
+
+  }
+
+
+  div.container{
+    background-color: $paco;
+    padding: 20px;
+    @include flexing(row,flex-start , stretch);
+    
+    div.user-window{
+      width: 350px;
+      color: white;
+      background-color:$copper;
+      padding: 15px 20px;
+      border-radius: 12px;
+      margin-right: 20px;
+      div.user-head{
+        @include flexing(row,space-between, center);
+        margin-bottom: 15px;
+        h4{
+          background-color: $sea-buckthorn;
+          padding: 0 8px;
+          border-radius: 10%;
+        }
+      }
+
+      div.users-list p{
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        margin-bottom: 15px;
+
+      }
+    }
+
+    div.chat-window{
+      width: 100%;
+      border-radius: 10px;
+      background-color: $pharlap;
+      div.chats{
+        height: 65vh;
+        padding: 20px;
+        overflow-y: auto;
+        div.user-join{
+          font-size: 20px;
+          background-color:white;
+          border-radius: 50px;
+          width: max-content;
+          padding: 7px 20px;
+          margin: 0 auto;
+          margin-bottom: 15px;
+
+        }
+        div.message{
+          color: black;
+          background-color: $golden-tainoi;
+          padding: 5px 15px;
+          max-width: 400px;
+          margin-bottom: 15px;
+          padding-top: 10px;
+          border-radius: 10px 50px 50px 10px;
+          p{
+            font-size: 16px ;
+          }
+        
+        }
+        div.outgoing{
+          margin-left: auto;
+          color: black;
+          background-color: $aths-special;
+          border-radius: 10px 50px 50px 10px;
+
+          text-align: right;
+        }
+      }
+
+      div.user-input{
+        @include flexing(row,space-between ,stretch );
+        padding: 20px;
+        input{
+          font-size: 16px;
+          background-color: wheat ;
+          padding: 10px 20px;
+          outline: none;
+          border: none;
+          color: black;
+          border-radius: 50px 0  0 50px;
+          width: 100%
+        }
+        button{
+          font-size: 16px;
+          font-weight: 600px;
+          padding: 5px 15px;
+          border: none;
+          outline:none;
+          letter-spacing: 0.5px;
+          color:white;
+          background-color: limegreen;
+          border-radius: 0 50px 50px 0;
+        
+        }
+      };
+
+    }
+
+
+  }
+  
+}
+
+
+@media screen and (max-width:900px) {
+   main{
+    width: 95%;
+    .navbar{
+      button{
+        display: block;
+      }
+    }
+    div.container{
+      position: relative;
+      div.user-window{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        border-radius: 0 0 10px 10px;
+        height: max-content;
+        z-index: 11;
+        box-shadow: 0 15px 20px -20px black;
+        padding-bottom: 0;
+        display: none;
+      }
+      div.chat-window{
+         div.chats{
+           div.message{
+            max-width: 300px;
+           }
+         }
+      }
+    }
+   }
+}

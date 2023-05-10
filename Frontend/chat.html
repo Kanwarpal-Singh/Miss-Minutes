@@ -1,95 +1,70 @@
 <html lang="en">
-
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Chat-Miss-Minutes</title>
-   <link rel="stylesheet" href="/styles/chat.css">
-
-   <!-- css path is right do not change :- refer chat_backend.js -->
+   <title>chat-miss-minutes</title>
+   <link rel="stylesheet" href="./public/styles/chat.css">
+      <!-- css path is right do not change :- refer chat_backend.js -->
    <!-- this below script file is used for connecting soket backend file to frontend -->
    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
       integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
       crossorigin="anonymous"></script>
 </head>
-
 <body>
 
-
-   <div class="main">
-
-      <!-- Navbar -->
-      <nav>
-         THis is Nav bar Section
-      </nav>
-
-
-      <div class="left-sidebar">
-
-         <div class="profile-picture"></div>
-         <div class="user-name">User name </div>
-
-         <div class="contacts-list">
-
-            <div class="chatting">
-               <img class="chatting-image" src="/images/miss-minutes-fingure.png" alt="">
-               <span class="chatting-name">SurajBhan Singh</span>
-            </div>
+   <main>
+         <div class="navbar">
+            <div class="logo" id="homepage">
+            <img width="50px" src="./images/miss-minutes-fingure.png" alt="" srcset="">
+            <h1>Miss Minutes</h1>
          </div>
-      </div>
-      <div class="right-sidebar">
-
-         <div class="chat-send-box">
-
-            <div class="chatting-box-top self">
-               <!-- <div class={self ? "chatting-box-top self" : "chatting-box-top"}> -->
-               <div class="message-top" self="true">
-                  <img class="chatting-box-image" src="/images/miss-minutes-fingure.png" alt="">
-                  <p class="chatText">Hleoo thisdfas sdf
-                     adsfajsdfkdsafl jks slfjsdlkf sdf </p>
-               </div>
-               <div class="message-bottom">
-                  1 hour ago
-               </div>
-
-               <div class="message-top">
-                  <img class="chatting-box-image" src="/images/miss-minutes-fingure.png" alt="">
-                  <p class="chatText">Hleoo thisdfas sdf
-                     adsfajsdfkdsafl jks slfjsdlkf sdf </p>
-               </div>
-               <div class="message-bottom">
-                  1 hour ago
-               </div>
-               
-               
-            </div>
-
-            
-
+            <button type="button" onclick="show_hide()">
+               <img width="50px" src="./images/hamburger.png" alt="" srcset="">
+            </button>
          </div>
 
+         <div class="container">
+            <div class="user-window">
 
+                <div class="user-head">
+                  <h3>Peopl</h3>
+                  <h4 class="user-count">0</h4>
+                </div>
+                <div class="users-list">
 
-         <div class="chatting-box-bottom">
+                </div>
+            </div>
+            <div class="chat-window">
+                <div class="chats">
 
-            <textarea class="send-chat-message" placeholder="write here"></textarea>
-            <button class="submit-button" type="submit">Send</button>
+         
+                  
+                </div>
+                <div class="user-input">
+                  <input id="user-msg" type="text" placeholder="write message">
+                  <button type="button" id="user-send">Send</button>
+                </div>
+                
+            </div>
+         </div>
+
+   </main>
    
-         </div>
+<script>
+   var uwindow=document.querySelector(".user-window")
 
-      </div>
+   function show_hide(){
+      if(uwindow.style.display=="block"){
+               uwindow.style.display="none"
+      }else{
+         uwindow.style.display="block"
 
-    
+      }
+   }
+</script>
 
-   </div>
-   </div>
+<script src="./public/scripts/chat.js"></script>
 
-   </div>
 </body>
-
-<script src="/scripts/chat.js"></script>
-<!-- This is a js file is used to connect with chat_backend.js so that socket.io can run
- an make connection -->
-
 </html>

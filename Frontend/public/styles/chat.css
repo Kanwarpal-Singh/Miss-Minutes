@@ -1,198 +1,174 @@
-
-.main{
-    border: 1px solid  green;
-    height: 100vh;
-    background-color: rgb(140,60,20)
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+* ::-webkit-scrollbar {
+  display: none;
 }
 
-
-nav{
-
-    border: 1px solid green;
-    height: 40px;
-    background-color: white;
-    margin-top: 10px;
+main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  overflow: hidden;
+  border-radius: 12px;
 }
-.left-sidebar{
-     border: 2px solid black;
-     position: absolute;
-     left: 5%;
-     top:8%;
-     height: 80vh;
-     width: 25%;
-     padding-bottom: 5%;
-     background-color: #fb922b;
-     /* border-radius: 50px; */
+main .navbar {
+  background-color: #b1581b;
+  color: white;
+  padding: 10px 22px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+main .navbar .logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+main .navbar .logo h1 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 32px;
+  margin-left: 12px;
+}
+main .navbar button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  display: none;
+}
+main div.container {
+  background-color: #4e1d13;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+main div.container div.user-window {
+  width: 350px;
+  color: white;
+  background-color: #b57532;
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-right: 20px;
+}
+main div.container div.user-window div.user-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+main div.container div.user-window div.user-head h4 {
+  background-color: #fb922b;
+  padding: 0 8px;
+  border-radius: 10%;
+}
+main div.container div.user-window div.users-list p {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+}
+main div.container div.chat-window {
+  width: 100%;
+  border-radius: 10px;
+  background-color: #a18174;
+}
+main div.container div.chat-window div.chats {
+  height: 65vh;
+  padding: 20px;
+  overflow-y: auto;
+}
+main div.container div.chat-window div.chats div.user-join {
+  font-size: 20px;
+  background-color: white;
+  border-radius: 50px;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 7px 20px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+main div.container div.chat-window div.chats div.message {
+  color: black;
+  background-color: #fccb5b;
+  padding: 5px 15px;
+  max-width: 400px;
+  margin-bottom: 15px;
+  padding-top: 10px;
+  border-radius: 10px 50px 50px 10px;
+}
+main div.container div.chat-window div.chats div.message p {
+  font-size: 16px;
+}
+main div.container div.chat-window div.chats div.outgoing {
+  margin-left: auto;
+  color: black;
+  background-color: #f0e7d7;
+  border-radius: 10px 50px 50px 10px;
+  text-align: right;
+}
+main div.container div.chat-window div.user-input {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  padding: 20px;
+}
+main div.container div.chat-window div.user-input input {
+  font-size: 16px;
+  background-color: wheat;
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  color: black;
+  border-radius: 50px 0 0 50px;
+  width: 100%;
+}
+main div.container div.chat-window div.user-input button {
+  font-size: 16px;
+  font-weight: 600px;
+  padding: 5px 15px;
+  border: none;
+  outline: none;
+  letter-spacing: 0.5px;
+  color: white;
+  background-color: limegreen;
+  border-radius: 0 50px 50px 0;
 }
 
-
-.profile-picture{
-
-     border: 2px solid black;
-      height: 150px;
-      width: 150px;
-      border-radius: 50%;
-       position: absolute;
-       top:5%;
-       left:25%
-}
-.user-name{
-    border: 1px solid black;
-    height: 2vh;
-    width: 25vh;
+@media screen and (max-width: 900px) {
+  main {
+    width: 95%;
+  }
+  main .navbar button {
+    display: block;
+  }
+  main div.container {
+    position: relative;
+  }
+  main div.container div.user-window {
     position: absolute;
-    top: 26%;
-    left: 15%;
-
-
-}
-
-
-.contacts-list{
-
-     border: 1px solid black;
-     height: 60vh;
-     width: 30vh;
-     position: absolute;
-     top: 30%;
-     left:7%
-}
-
-.chatting{
-    display: flex;
-    align-items: center; 
-    padding: 10px;
-    margin: 10px;
-    cursor: pointer;
-
-}
-
-.chatting:hover{
-    background-color: #eeecec;
-}
-
-.chatting-image{
-    width: 14%;
-    height: 8%;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 20px;
-}
-
-.chatting-name{
-    font-size: 20px;
-}
-
-
-.right-sidebar{
-
-    border: 2px solid red;
-    position: absolute;
-    top: 8%;
-    left:30%;
-    width: 63%;
-    padding-bottom: 5%;
-    
-    height: 80vh;
-    background-image: url("/images/miss-minutes-fingure.png");
-    /* Do not change files url as it is automatically taken by the backend chat-app-server */
-    background-repeat: no-repeat;
-    background-color:rgb(230,231,231);
-    background-position: center;
-    opacity: 0.8;
-    
-}
-.right-sidebar::before{
-    content: "Welcome to  miss minutes chats";
-    color: orange;
-    font-size: 30px;
-     display: block;
-     text-align: center;
-     
-
-    
-}
-
-
-.chatting-box-top{
-    display: flex;
-    flex-direction: column;
-    margin-top:25px;
-}
-.chatting-box-image{
-    width: 40px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 15px;
-    object-fit: cover;
-    
-}
-
-.message-top{
-    display: flex;
-
-}
-.message-bottom{
-    font-size: 15px;
-    margin-top:1px ;
-    margin-left: 1px;
-}
-.chatting-box-top.self{
-    align-items: flex-end;
-    margin-right:10px;
-}
-.chatting-box-top.self .chatText{
-    background-color: #f3c89d;
-    color: black;
-}
-
-.chatText{
-    padding: 10px;
-    border-radius: 20px;
-    background-color:rgb(129, 40, 40);
-    color: white;
-    max-width: 250px;
-
-}
-
-.chatting-box-bottom{
-    margin-top: 15px;
-    display: flex;
-    align-items: center ;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.send-chat-message{
-    width: 85%;
-    height: 50px;
-    border-radius: 6px;
-
-}
-
-.submit-button{
-    width: 100px;
-    height: 50;
-    border-radius: 12px;
-    font-size: 20px;
-    background-color: limegreen;
-    color: white;
-     border: none;
-     cursor: pointer;
-
-}
-
-
-
-
-
-.chatting-box-top{
-    border: 1px solid chartreuse;
-    height: 90%;
-    overflow-y: scroll;
-
-}
-
-  
-  
-
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    height: -moz-max-content;
+    height: max-content;
+    z-index: 11;
+    box-shadow: 0 15px 20px -20px black;
+    padding-bottom: 0;
+    display: none;
+  }
+  main div.container div.chat-window div.chats div.message {
+    max-width: 300px;
+  }
+}/*# sourceMappingURL=chat.css.map */

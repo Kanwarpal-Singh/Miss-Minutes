@@ -78,8 +78,11 @@ const teams_num = document.getElementById("teams_num")
 const employess_num = document.getElementById("employess_num")
 const averagetasks_num = document.getElementById("averagetasks_num")
 // ===> fetch function
+// let employees = 0;
+
 window.addEventListener("load",()=>{
     fetchdata()
+    
 })
 
 async function fetchdata() {
@@ -119,10 +122,12 @@ async function displayProjects(data){
       }
       tasks+=e.tasks.length
     })
+    
    in_progress_num.innerText = ipp;
    completed_num.innerText = cp;
    teams_num.innerText = data.length;
    averagetasks_num.innerText = tasks/data.length;
+   employess_num.innerText = tasks
 }
 
 // displaytables on page
@@ -167,9 +172,9 @@ async function displaytables(data){
     td1.innerText = e.name;
     td2.innerText = e.timeTracking.startDate;
     td3.innerText = managername;
-    let tasks = e.tasks;
+    let tasks = e.tasks.length;
     if(tasks>0){
-      td4.innerText = tasks
+      td4.innerText = tasks;
     }else{
       td4.innerText = 0;
     }
@@ -181,6 +186,27 @@ async function displaytables(data){
 
 }
 
+async function getemp(emp){
+  try {
+    await fetch(`http://localhost:8080/user/employee`,{
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  .then((res)=>res.json())
+  .then((data)=>{
+  // console.log(data);
+  emp = data.length
+  
+  })
+  // console.log(emp)
+  return emp
+  } catch (error) {
+    console.log(error)
+  }
+  
+}
 // getuser function
 
 async function getuser(id){
@@ -196,6 +222,7 @@ async function getuser(id){
     // console.log(data.user);
     name = data.user
     })
+
     return name;
   }
 

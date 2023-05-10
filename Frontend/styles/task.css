@@ -102,7 +102,7 @@
 
 #details-currency,#details-status,#taskdetails-status{
     text-align: center;
-    font-size: 42px;
+    font-size: 30px;
     font-weight: 400;
     line-height: 50px;
     margin-top: 25px;
@@ -111,7 +111,7 @@
 
 #details-total-employee,#details-total-task,#taskdetails-createdby,#taskdetails-assignto,#taskdetails-endtime,#taskdetails-projectname,#taskdetails-time,#details-total-time,#details-total-hour{
     text-align: center;
-    font-size: 42px;
+    font-size: 30px;
     font-weight: 400;
     line-height: 50px;
     margin-top: 25px;
