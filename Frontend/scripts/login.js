@@ -5,7 +5,7 @@ let passwordInput = document.getElementById("password");
 
 const user = JSON.parse(sessionStorage.getItem("user")) || "";
 
-const url ="http://localhost:8080/user/login"
+const url ="https://nodejs-production-1836.up.railway.app/"
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -13,7 +13,7 @@ form.addEventListener("submit", (e) => {
     const email = emailInput.value;
     const password = passwordInput.value;
   
-    fetch(`${url}`,{
+    fetch(`https://nodejs-production-1836.up.railway.app/user/login`,{
       method: "POST",
       body: JSON.stringify({email, password }),
       headers: {

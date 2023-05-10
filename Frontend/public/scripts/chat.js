@@ -1,10 +1,12 @@
+const webs_server = "ws://localhost:4500"
+const railway_bakend = "https://nodejs-production-1836.up.railway.app/"
 
-const  socket= io("ws://localhost:4500",{transports:["websocket"]})
+const  socket= io(webs_server,{transports:["websocket"]})
 
 
 var username;
 var chats=document.querySelector(".chats")
-console.log(chats)
+// console.log(chats)
 var users_list=document.querySelector(".users-list")
 var  users_count=document.querySelector(".user-count")
 var msg_send=document.querySelector("#user-send")

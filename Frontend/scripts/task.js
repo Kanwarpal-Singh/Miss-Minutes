@@ -48,7 +48,7 @@ window.addEventListener("load", () => {
 
 async function fetchdata() {
     try {
-        let res = await fetch(`http://localhost:8080/project/details/${projectid}`, {
+        let res = await fetch(`https://nodejs-production-1836.up.railway.app/project/details/${projectid}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -85,7 +85,7 @@ async function fetchdata() {
 
 async function fetchdata1() {
     try {
-        let res = await fetch(`http://localhost:8080/task/project/${projectid}`, {
+        let res = await fetch(`https://nodejs-production-1836.up.railway.app/task/project/${projectid}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -126,7 +126,7 @@ function displayData(data) {
         const formattedDate = date.toLocaleString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
         CreatedOn.innerText = formattedDate;
 
-        await fetch(`http://localhost:8080/user/${element.createdBy}`, {
+        await fetch(`https://nodejs-production-1836.up.railway.app/user/${element.createdBy}`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -139,7 +139,7 @@ function displayData(data) {
             console.log(error)
         })
 
-        await fetch(`http://localhost:8080/user/${element.assignedTo}`, {
+        await fetch(`https://nodejs-production-1836.up.railway.app/user/${element.assignedTo}`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -181,7 +181,7 @@ button.addEventListener("click", function() {
 
 async function fetchdata2() {
     try {
-        let res = await fetch(`http://localhost:8080/task/${projectid}/users`, {
+        let res = await fetch(`https://nodejs-production-1836.up.railway.app/task/${projectid}/users`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -208,7 +208,7 @@ async function fetchdata2() {
 
 async function toggleDropdown3(createTaskform) {
     
-    const response = await fetch('http://localhost:8080/user/employee', {
+    const response = await fetch('https://nodejs-production-1836.up.railway.app/user/employee', {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `${token}`
@@ -257,7 +257,7 @@ formEl.addEventListener("submit", async (event) => {
       projectId 
     };
   console.log(requestBody)
-    const response = await fetch(`http://localhost:8080/task/create/${projectId}`, {
+    const response = await fetch(`https://nodejs-production-1836.up.railway.app/task/create/${projectId}`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -299,7 +299,7 @@ formEl.addEventListener("submit", async (event) => {
 
   projectdelete .addEventListener("click", () => {
 
-    fetch(`http://localhost:8080/task/${projectid}`, {
+    fetch(`https://nodejs-production-1836.up.railway.app/task/${projectid}`, {
         method: "DELETE",
         headers: {
             'Content-Type': 'application/json',
