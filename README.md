@@ -1,6 +1,6 @@
-# [Desktimer Clone](https://glittering-tiramisu-11dfcd.netlify.app/)
+# [Miss-Minutes](https://glittering-tiramisu-11dfcd.netlify.app/)
 
-Desktimer Clone is a collaborative project developed by a team of 5 members. It is a clone of the website called Desktimer, which is a desktop and mobile time tracking app for companies and freelancers.
+Miss-Minutes is a collaborative project developed by a team of 5 members. It is a clone of the website called Desktimer, which is a desktop and mobile time tracking app for companies and freelancers.
 
 ## Team Members
 
@@ -12,7 +12,7 @@ Desktimer Clone is a collaborative project developed by a team of 5 members. It 
 
 ## Project Overview
 
-Desktimer Clone is developed using the following technologies:
+Miss-Minutes is developed using the following technologies:
 
 - Frontend: HTML, CSS, JavaScript
 - Backend: Node.js ecosystem
@@ -22,7 +22,7 @@ The project follows the MVC (Model-View-Controller) architecture to ensure a str
 
 ## Features
 
-The Desktimer Clone project includes the following features:
+The Miss-Minutes project includes the following features:
 
 - Time tracking and time management dashboard
 - Chat application
