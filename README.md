@@ -47,8 +47,11 @@ The project has been deployed using the following platforms:
 Here are some screenshots of the Desktimer Clone website:
 
 ![Screenshot 1](https://github.com/ShuShu-8788/poised-slave-1674/assets/111420558/d9e1f0c3-c463-4327-924b-a393f4fe1a52)
+
 ![Screenshot 2](https://github.com/ShuShu-8788/poised-slave-1674/assets/111420558/8c5c48e7-54ab-4338-96d7-c4cdf0b15a1a)
+
 ![Screenshot 3](https://github.com/ShuShu-8788/poised-slave-1674/assets/111420558/e466e59d-f14b-47d8-bf9a-7029cd937575)
+
 ![Screenshot 4](https://github.com/ShuShu-8788/poised-slave-1674/assets/111420558/eb71c2da-2320-42f8-9b26-af5ef5e619be)
 
 
