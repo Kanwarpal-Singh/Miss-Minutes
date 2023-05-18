@@ -44,7 +44,7 @@ The project has been deployed using the following platforms:
 
 ## Screenshots
 
-Here are some screenshots of the Desktimer Clone website:
+Here are some screenshots of the Miss-Minutes website:
 
 ![Screenshot 1](https://github.com/ShuShu-8788/poised-slave-1674/assets/111420558/d9e1f0c3-c463-4327-924b-a393f4fe1a52)
 
@@ -57,8 +57,8 @@ Here are some screenshots of the Desktimer Clone website:
 
 ## Project Timeline!
 
-The Desktimer Clone project was completed within 5 working days, showcasing the team's efficiency and dedication.
+The Miss-Minutes project was completed within 5 working days, showcasing the team's efficiency and dedication.
 
 ## Conclusion
 
-The Desktimer Clone project is a testament to the collaborative efforts of the team members. With the use of modern web technologies and best practices, the team successfully recreated the functionalities of the original Desktimer website. The project demonstrates the team's skills in frontend and backend development, as well as their ability to deliver a professional-quality application.
+Miss-Minutes project is a testament to the collaborative efforts of the team members. With the use of modern web technologies and best practices, the team successfully recreated the functionalities of the original Desktimer website. The project demonstrates the team's skills in frontend and backend development, as well as their ability to deliver a professional-quality application.
