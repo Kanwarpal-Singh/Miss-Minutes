@@ -1,50 +1,50 @@
-#projects-content{
-    background-color: rgb(197, 150, 106);
-    padding: 10px;
-    width: 100%;
-    text-align: center
+#projects-content {
+  background-color: rgb(197, 150, 106);
+  padding: 10px;
+  width: 100%;
+  text-align: center;
 }
-form{
-    background-color:#b57532;
-    width: 40%;
-    margin: auto;
-    height: 300px;
-    margin-top: 10px;
+form {
+  background-color: #b57532;
+  width: 40%;
+  margin: auto;
+  height: 300px;
+  margin-top: 10px;
 }
-#name{
-    border: none;
-    width: 80%;
-    height: 50px;
-    padding: 15px;
-    color: white;
-    align-items: center;
-    margin: auto;
-    margin-top: 15px;
-    border-radius: 5px;
-    background-color: rgb(197, 150, 106) ;
+#name {
+  border: none;
+  width: 80%;
+  height: 50px;
+  padding: 15px;
+  color: white;
+  align-items: center;
+  margin: auto;
+  margin-top: 15px;
+  border-radius: 5px;
+  background-color: rgb(197, 150, 106);
 }
-#description{
-    max-height: 150px;
-    max-width: 80%;
-    min-width: 80%;
-    min-height: 120px;
-    border: none;
-    padding: 15px;
-    align-items: center;
-    color:white;
-    margin-top: 15px;
-    border-radius: 5px;
-    background-color: rgb(197, 150, 106) ;
+#description {
+  max-height: 150px;
+  max-width: 80%;
+  min-width: 80%;
+  min-height: 120px;
+  border: none;
+  padding: 15px;
+  align-items: center;
+  color: white;
+  margin-top: 15px;
+  border-radius: 5px;
+  background-color: rgb(197, 150, 106);
 }
-button{
-    border: none;
-    width: 80%;
-    height: 50px;
-    padding: 15px;
-    color: white;
-    align-items: center;
-    margin: auto;
-    margin-top: 15px;
-    border-radius: 5px;
-    background-color: rgb(197, 150, 106) ;
+button {
+  border: none;
+  width: 80%;
+  height: 50px;
+  padding: 15px;
+  color: white;
+  align-items: center;
+  margin: auto;
+  margin-top: 15px;
+  border-radius: 5px;
+  background-color: rgb(197, 150, 106);
 }
