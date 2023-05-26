@@ -46,13 +46,13 @@ The project has been deployed using the following platforms:
 
 Here are some screenshots of the Miss-Minutes website:
 
-![Screenshot 1](https://github.com/ShuShu-8788/poised-slave-1674/assets/111420558/d9e1f0c3-c463-4327-924b-a393f4fe1a52)
+![Screenshot (362)](https://github.com/Kanwarpal-Singh/Miss-Minutes/assets/111420558/c9e91fbe-33a0-4959-8ee1-c37ce0b7366f)
 
-![Screenshot 2](https://github.com/ShuShu-8788/poised-slave-1674/assets/111420558/8c5c48e7-54ab-4338-96d7-c4cdf0b15a1a)
+![Screenshot (363)](https://github.com/Kanwarpal-Singh/Miss-Minutes/assets/111420558/d17b13fe-1d2f-4dfe-bcf7-a2b1e84d74f9)
 
-![Screenshot 3](https://github.com/ShuShu-8788/poised-slave-1674/assets/111420558/e466e59d-f14b-47d8-bf9a-7029cd937575)
+![Screenshot (365)](https://github.com/Kanwarpal-Singh/Miss-Minutes/assets/111420558/14e55947-0450-4eba-9469-6ca761f37876)
 
-![Screenshot 4](https://github.com/ShuShu-8788/poised-slave-1674/assets/111420558/eb71c2da-2320-42f8-9b26-af5ef5e619be)
+![Screenshot (366)](https://github.com/Kanwarpal-Singh/Miss-Minutes/assets/111420558/2037ca16-3d8d-450f-8d9d-0f496a10a51d)
 
 
 ## Project Timeline!
