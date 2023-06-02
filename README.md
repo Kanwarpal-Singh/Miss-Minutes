@@ -6,7 +6,7 @@ Miss-Minutes is a collaborative project developed by a team of 5 members. It is 
 
 - [Kanwarpal Singh](https://github.com/Kanwarpal-Singh)
 - [Kuldeep Singh](https://github.com/kuldeepkd13)
-- [Suraj Singh](https://github.com/surajbhan-3)
+- [Suraj Bhan Singh](https://github.com/surajbhan-3)
 - [Sumita Mahato](https://github.com/Sumitamahato)
 - [Shubham Sonawane](https://github.com/ShuShu-8788)
 
