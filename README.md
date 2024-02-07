@@ -1,4 +1,4 @@
-# [Miss-Minutes](https://glittering-tiramisu-11dfcd.netlify.app/)
+# [Miss-Minutes](https://miss-minutes.netlify.app/)
 
 Miss-Minutes is a collaborative project developed by a team of 5 members. It is a clone of the website called Desktimer, which is a desktop and mobile time tracking app for companies and freelancers.
 
@@ -37,7 +37,7 @@ The Miss-Minutes project includes the following features:
 The project has been deployed using the following platforms:
 
 - Frontend: Netlify
-  - URL: [Miss-Minutes](https://glittering-tiramisu-11dfcd.netlify.app/)
+  - URL: [Miss-Minutes](https://miss-minutes.netlify.app/)
 
 - Backend: Cyclic
   - URL: [cyclic](https://www.cyclic.sh/)
